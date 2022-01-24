@@ -1,6 +1,5 @@
 class ModelProduto{
     constructor({}){
-
     }
 }
-module.exports = modelProduto;
+export {ModelProduto};

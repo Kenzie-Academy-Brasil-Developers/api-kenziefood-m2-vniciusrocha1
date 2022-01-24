@@ -1,4 +1,4 @@
-class vitrineControll{
-    //Classe estatica
+import {KenzieFoodControll} from "./KenzieFood.js";
+class VitrineControll{
 }
-module.exports = vitrineControll;
+export {VitrineControll};

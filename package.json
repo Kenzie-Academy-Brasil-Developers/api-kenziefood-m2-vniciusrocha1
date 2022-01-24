@@ -4,6 +4,7 @@
   "description": "Capstone grupo 1",
   "main": "index.js",
   "scripts": {
+    "start": "node src/js/script.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-vniciusrocha1#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "fs": "^0.0.1-security"
   }
 }

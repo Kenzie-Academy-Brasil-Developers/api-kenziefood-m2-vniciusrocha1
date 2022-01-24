@@ -1,3 +1,2 @@
-const vitrineControll = require('../controllers/Carrinho');
-const KenzieFoodControll = require('../controllers/KenzieFood');
-const carrinhoControll = require('../controllers/Carrinho');
+import {VitrineControll} from "./controllers/Vitrine.js";
+import {CarrinhoControll} from "./controllers/Carrinho.js";

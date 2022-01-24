@@ -1,4 +1,4 @@
-class carrinhoControll{
-    //Classe estatica
+import {KenzieFoodControll} from "./KenzieFood.js";
+class CarrinhoControll{
 }
-carrinhoControll
+export {CarrinhoControll}
