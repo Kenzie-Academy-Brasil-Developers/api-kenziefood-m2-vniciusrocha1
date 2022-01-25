@@ -1,4 +1,5 @@
-:root {
+:root{
+    box-sizing: border-box;
     /* Primary Palette */
     --color-primary: #FF2253;
     --color-primary-50: #FFE9EE;
@@ -22,11 +23,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-html {
+html{
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-body {
+body{
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,7 +41,8 @@ body {
     border-radius: 10px;
 }
 
-.logoContainer__logo {
+.logoContainer__logo{
+    box-sizing: border-box;
     position: absolute;
     width: 123px;
     height: 46px;
@@ -46,7 +50,8 @@ body {
     top: 21px;
 }
 
-.header__searchContainer {
+.header__searchContainer{
+    box-sizing: border-box;
     position: absolute;
     width: 343px;
     height: 54px;
@@ -54,7 +59,8 @@ body {
     top: 82px;
 }
 
-.searchContainer__input {
+.searchContainer__input{
+    box-sizing: border-box;
     position: absolute;
     width: 343px;
     height: 54px;
@@ -73,7 +79,8 @@ body {
     padding-left: 15px;
 }
 
-.searchContainer__button {
+.searchContainer__button{
+    box-sizing: border-box;
     position: absolute;
     width: 44px;
     height: 44px;
@@ -88,13 +95,15 @@ body {
     border-radius: 50%;
 }
 
-.searchContainer__button:hover {
+.searchContainer__button:hover{
+    box-sizing: border-box;
     background-color: var(--color-primary);
     color: var(--white);
     cursor: pointer;
 }
 
-.nav__filterContainer {
+.nav__filterContainer{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -108,7 +117,8 @@ body {
     top: 153px;
 }
 
-.btn__icon {
+.btn__icon{
+    box-sizing: border-box;
     position: relative;
     right: 10px;
 }
@@ -116,7 +126,8 @@ body {
 .filterContainer__btn--todos,
 .filterContainer__btn--panificadora,
 .filterContainer__btn--frutas,
-.filterContainer__btn--bebidas {
+.filterContainer__btn--bebidas{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -131,28 +142,32 @@ body {
     flex-grow: 0;
 }
 
-.filterContainer__btn--todos {
+.filterContainer__btn--todos{
+    box-sizing: border-box;
     order: 0;
     width: 72px;
     background-color: var(--grey-1);
     border: 1.5px solid var(--grey-1);
 }
 
-.filterContainer__btn--panificadora {
+.filterContainer__btn--panificadora{
+    box-sizing: border-box;
     order: 1;
     width: 148px;
     background-color: var(--product-2);
     border: 1.5px solid var(--product-2);
 }
 
-.filterContainer__btn--frutas {
+.filterContainer__btn--frutas{
+    box-sizing: border-box;
     order: 2;
     width: 108px;
     background-color: var(--product-3);
     border: 1.5px solid var(--product-3);
 }
 
-.filterContainer__btn--bebidas {
+.filterContainer__btn--bebidas{
+    box-sizing: border-box;
     order: 3;
     width: 118px;
     background-color: var(--product-4);
@@ -162,12 +177,14 @@ body {
 .filterContainer__btn--todos:hover,
 .filterContainer__btn--panificadora:hover,
 .filterContainer__btn--frutas:hover,
-.filterContainer__btn--bebidas:hover {
+.filterContainer__btn--bebidas:hover{
+    box-sizing: border-box;
     border: 1.5px solid var(--grey-4);
     cursor: pointer;
 }
 
-.section__productsContainer {
+.section__productsContainer{
+    box-sizing: border-box;
     position: absolute;
     overflow: auto;
     width: 350px;
@@ -176,41 +193,49 @@ body {
     top: 230px;
 }
 
-.productsContainer__list {
+.productsContainer__list{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
 }
 
-.productsContainer__list--footer {
+.productsContainer__list--footer{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.productsContainer__list li {
+.productsContainer__list li{
+    box-sizing: border-box;
     margin-right: 20px;
 }
 
-.productsContainer__list li img {
+.productsContainer__list li img{
+    box-sizing: border-box;
     border: 3px solid var(--color-primary-50);
     box-sizing: border-box;
     border-radius: 8px;
 }
-.productsContainer__list li img:hover {
+.productsContainer__list li img:hover{
+    box-sizing: border-box;
     border: 3px solid var(--color-primary);
 }
-.productsContainer__list span {
+.productsContainer__list span{
+    box-sizing: border-box;
     font-size: 17px;
     font-weight: bold;
     line-height: 27px;
 }
-.productsContainer__list p {
+.productsContainer__list p{
+    box-sizing: border-box;
     font-size: 12px;
     line-height: 16px;
     color: var(--grey-3);
 }
-.productsContainer__list button {
+.productsContainer__list button{
+    box-sizing: border-box;
     width: 44px;
     height: 44px;
     background-color: var(--color-secondary-50);
@@ -219,12 +244,14 @@ body {
     box-sizing: border-box;
     border-radius: 50%;
 }
-.productsContainer__list button:hover {
+.productsContainer__list button:hover{
+    box-sizing: border-box;
     background-color: var(--color-secondary);
     color: var(--white);
     cursor: pointer;
 }
-.aside__cartContainer {
+.aside__cartContainer{
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -234,7 +261,8 @@ body {
     left: 18px;
     margin: 20px 0px;
 }
-.cartContainer__header {
+.cartContainer__header{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -249,13 +277,16 @@ body {
     border-radius: 14px 14px 0px 0px;
     margin-bottom: 5px;
 }
-.cartContainer__header span {
+.cartContainer__header span{
+    box-sizing: border-box;
     margin-left: 25px;
 }
-.fa-cart-arrow-down {
+.fa-cart-arrow-down{
+    box-sizing: border-box;
     margin-left: 25px;
 }
-.aside__cartContainer--full {
+.aside__cartContainer--full{
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,7 +296,8 @@ body {
 
     background-color: var(--white);
 }
-.cartContainer__list {
+.cartContainer__list{
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -273,37 +305,44 @@ body {
     height: 410px;
     width: 340px;
 }
-.cartContainer__list li {
+.cartContainer__list li{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     margin: 20px;
 }
-.cartContainer__list--description {
+.cartContainer__list--description{
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     margin: 0px 5px;
 }
-.cartContainer__list img {
+.cartContainer__list img{
+    box-sizing: border-box;
     width: 70px;
     height: 70px;
     border-radius: 8px;
 }
-.product__title {
+.product__title{
+    box-sizing: border-box;
     font-size: 14px;
     font-weight: bold;
     line-height: 25px;
 }
-.product__category {
+.product__category{
+    box-sizing: border-box;
     font-size: 10px;
     color: var(--grey-3);
     line-height: 25px;
 }
-.product__price {
+.product__price{
+    box-sizing: border-box;
     font-size: 12px;
     color: var(--grey-4);
     line-height: 25px;
 }
-.cartContainer__trash {
+.cartContainer__trash{
+    box-sizing: border-box;
     width: 25px;
     height: 25px;
     border-radius: 4px;
@@ -312,28 +351,34 @@ body {
     color: var(--grey-3);
     cursor: pointer;
 }
-.fa-trash {
+.fa-trash{
+    box-sizing: border-box;
     width: 9px;
     height: 12px;
 }
-.aside__cartContainer--empty span {
+.aside__cartContainer--empty span{
+    box-sizing: border-box;
     width: 218px;
 
     text-align: center;
     color: var(--grey-3);
 }
-.cart__icon {
+.cart__icon{
+    box-sizing: border-box;
     margin-bottom: 25px;
 }
-.list--span1 {
+.list--span1{
+    box-sizing: border-box;
     font-weight: bold;
     font-size: 17px;
     margin-bottom: 25px;
 }
-.list--span2 {
+.list--span2{
+    box-sizing: border-box;
     font-size: 15px;
 }
-.footer__quantity {
+.footer__quantity{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -343,10 +388,12 @@ body {
     background-color: var(--grey-1);
     font-weight: bold;
 }
-.footer__quantity span {
+.footer__quantity span{
+    box-sizing: border-box;
     margin: 0px 25px;
 }
-.footer_total {
+.footer_total{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -356,7 +403,8 @@ body {
     background-color: var(--white);
     font-weight: bold;
 }
-.footer_total span {
+.footer_total span{
+    box-sizing: border-box;
     margin: 0px 25px;
 }
 .div__centralizar--categoria{
@@ -381,55 +429,65 @@ body {
     border-radius: 8px;
 }
 
-@media screen and (min-width: 768px) {
-    body {
+@media screen and (min-width: 768px){
+    body{
+        box-sizing: border-box;
         flex-direction: row;
-        width: 1600px;
+        width: 95vw;
         margin: 50px;
     }
 
-    .logoContainer__logo {
+    .logoContainer__logo{
+        box-sizing: border-box;
         left: 0px;
         top: 0px;
     }
 
-    .header__searchContainer {
-        left: 69%;
+    .header__searchContainer{
+        box-sizing: border-box;
+        /* position: relative; */
+        left: 75.5%;
         top: 0;
     }
 
-    .nav__filterContainer {
+    .nav__filterContainer{
+        box-sizing: border-box;
         overflow: inherit;
         left: 0px;
         top: 100px;
     }
 
-    .section__productsContainer {
+    .section__productsContainer{
+        box-sizing: border-box;
         overflow: inherit;
     }
 
-    .productsContainer__list li:nth-child(4) {
+    .productsContainer__list li:nth-child(4){
+        box-sizing: border-box;
         position: absolute;
         width: 300px;
         left: 0px;
         top: 400px;
     }
 
-    .productsContainer__list li:nth-child(5) {
+    .productsContainer__list li:nth-child(5){
+        box-sizing: border-box;
         position: absolute;
         width: 300px;
         left: 320px;
         top: 400px;
     }
 
-    .productsContainer__list li:nth-child(6) {
+    .productsContainer__list li:nth-child(6){
+        box-sizing: border-box;
         position: absolute;
         width: 300px;
         left: 640px;
         top: 400px;
     }
 
-    .aside__cartContainer {
+    .aside__cartContainer{
+        box-sizing: border-box;
         left: 1100px;
         top: 80px;
     }
