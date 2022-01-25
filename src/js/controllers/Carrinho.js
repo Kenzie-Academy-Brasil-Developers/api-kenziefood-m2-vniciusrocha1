@@ -25,18 +25,19 @@ class CarrinhoControll{
             carrinho.forEach((item, index) => {
                 let {categoria, nome, preco, imagem, id} = item
                 let valorConvertido = preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-                listagem.innerHTML += `<li>
+                listagem.innerHTML += `<li index="${index}">
                     <img src="${imagem}">
                     <div class="cartContainer__list--description">
                         <span class="product__title">${nome}</span>
                         <span class="product__category">${categoria}</span>
                         <span class="product__price">${valorConvertido}</span>
                     </div>
-                    <button onclick="excluir(this)"class="cartContainer__trash" index="${index}" ><i class="fas fa-trash"></i></button>
+                    <button class="cartContainer__trash" ><i class="fas fa-trash"></i></button>
                 </li>`
             })
         }
-        this.montarFooter()
+        this.montarFooter();
+        this.addEvents();
     }
     static montarFooter() {
         let carrinho = this.read()
@@ -60,6 +61,14 @@ class CarrinhoControll{
         carrinho.splice(index, 1)
         this.write(carrinho)
         this.criandoDOM()
+    }
+    static addEvents() {
+        let listaBotoes = document.querySelectorAll('.cartContainer__trash');
+        listaBotoes.forEach(element => element.addEventListener('click', e => {
+            let li = e.target.closest('li')
+            let index = li.getAttribute('index');
+            this.excluirCarrinho(index)
+        }))
     }
 }
 export {CarrinhoControll}
