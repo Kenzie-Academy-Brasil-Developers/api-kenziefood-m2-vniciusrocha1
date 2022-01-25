@@ -197,23 +197,19 @@ body {
     box-sizing: border-box;
     border-radius: 8px;
 }
-
 .productsContainer__list li img:hover {
     border: 3px solid var(--color-primary);
 }
-
 .productsContainer__list span {
     font-size: 17px;
     font-weight: bold;
     line-height: 27px;
 }
-
 .productsContainer__list p {
     font-size: 12px;
     line-height: 16px;
     color: var(--grey-3);
 }
-
 .productsContainer__list button {
     width: 44px;
     height: 44px;
@@ -223,13 +219,11 @@ body {
     box-sizing: border-box;
     border-radius: 50%;
 }
-
 .productsContainer__list button:hover {
     background-color: var(--color-secondary);
     color: var(--white);
     cursor: pointer;
 }
-
 .aside__cartContainer {
     display: flex;
     flex-direction: column;
@@ -240,7 +234,6 @@ body {
     left: 18px;
     margin: 20px 0px;
 }
-
 .cartContainer__header {
     display: flex;
     flex-direction: row;
@@ -256,15 +249,12 @@ body {
     border-radius: 14px 14px 0px 0px;
     margin-bottom: 5px;
 }
-
 .cartContainer__header span {
     margin-left: 25px;
 }
-
 .fa-cart-arrow-down {
     margin-left: 25px;
 }
-
 .aside__cartContainer--full {
     display: flex;
     flex-direction: column;
@@ -275,51 +265,44 @@ body {
 
     background-color: var(--white);
 }
-
 .cartContainer__list {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
     height: 410px;
     width: 340px;
 }
-
 .cartContainer__list li {
     display: flex;
     flex-direction: row;
     margin: 20px;
 }
-
 .cartContainer__list--description {
     display: flex;
     flex-direction: column;
     margin: 0px 5px;
 }
-
 .cartContainer__list img {
     width: 70px;
     height: 70px;
     border-radius: 8px;
 }
-
 .product__title {
     font-size: 14px;
     font-weight: bold;
     line-height: 25px;
 }
-
 .product__category {
     font-size: 10px;
     color: var(--grey-3);
     line-height: 25px;
 }
-
 .product__price {
     font-size: 12px;
     color: var(--grey-4);
     line-height: 25px;
 }
-
 .cartContainer__trash {
     width: 25px;
     height: 25px;
@@ -329,44 +312,27 @@ body {
     color: var(--grey-3);
     cursor: pointer;
 }
-
 .fa-trash {
     width: 9px;
     height: 12px;
 }
-
-/* .aside__cartContainer--empty {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 342px;
-    height: 432px;
-
-    background-color: var(--grey-1);
-} */
-
 .aside__cartContainer--empty span {
     width: 218px;
 
     text-align: center;
     color: var(--grey-3);
 }
-
 .cart__icon {
     margin-bottom: 25px;
 }
-
 .list--span1 {
     font-weight: bold;
     font-size: 17px;
     margin-bottom: 25px;
 }
-
 .list--span2 {
     font-size: 15px;
 }
-
 .footer__quantity {
     display: flex;
     flex-direction: row;
@@ -377,11 +343,9 @@ body {
     background-color: var(--grey-1);
     font-weight: bold;
 }
-
 .footer__quantity span {
     margin: 0px 25px;
 }
-
 .footer_total {
     display: flex;
     flex-direction: row;
@@ -392,7 +356,6 @@ body {
     background-color: var(--white);
     font-weight: bold;
 }
-
 .footer_total span {
     margin: 0px 25px;
 }
@@ -417,4 +380,57 @@ body {
     box-sizing: border-box;
     border-radius: 8px;
 }
-@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 768px) {
+    body {
+        flex-direction: row;
+        width: 1600px;
+        margin: 50px;
+    }
+
+    .logoContainer__logo {
+        left: 0px;
+        top: 0px;
+    }
+
+    .header__searchContainer {
+        left: 69%;
+        top: 0;
+    }
+
+    .nav__filterContainer {
+        overflow: inherit;
+        left: 0px;
+        top: 100px;
+    }
+
+    .section__productsContainer {
+        overflow: inherit;
+    }
+
+    .productsContainer__list li:nth-child(4) {
+        position: absolute;
+        width: 300px;
+        left: 0px;
+        top: 400px;
+    }
+
+    .productsContainer__list li:nth-child(5) {
+        position: absolute;
+        width: 300px;
+        left: 320px;
+        top: 400px;
+    }
+
+    .productsContainer__list li:nth-child(6) {
+        position: absolute;
+        width: 300px;
+        left: 640px;
+        top: 400px;
+    }
+
+    .aside__cartContainer {
+        left: 1100px;
+        top: 80px;
+    }
+}
