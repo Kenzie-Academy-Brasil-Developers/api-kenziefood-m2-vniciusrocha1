@@ -396,7 +396,25 @@ body {
 .footer_total span {
     margin: 0px 25px;
 }
-
-
-
+.div__centralizar--categoria{
+    border-radius: 20px;
+    display: flex;
+    width: 133px;
+    height: 30px;
+    position: relative;
+    bottom: 20px;
+    left: 12px;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 12px;
+}
+.div__centralizar--categoria span{
+    font-size: 12px;
+    font-weight: 500;
+}
+.div__centralizar--categoria img{
+    border: 3px solid transparent;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
 @media screen and (min-width: 768px) {}
