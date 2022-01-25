@@ -19,13 +19,20 @@ class CarrinhoControll{
     }
     static criandoDOM() {
         let listagem   = document.getElementsByClassName("cartContainer__list")[0];
-        listagem.innerHTML = "";
+        let html = `
+            <div class="aside__cartContainer--empty">
+                <img class="cart__icon" src="/src/img/shopping-bag.png">
+                <span class="list--span1">Ops!</span>
+                <span class="list--span2">Por enquanto não temos produtos no carrinho</span>
+            </div>`;
+        let iqual = true;
         let carrinho = this.getCard();
         if(carrinho !== null){
             carrinho.forEach((item, index) => {
+                iqual = (index === 0)? true : false;
                 let {categoria, nome, preco, imagem, id} = item;
                 let valorConvertido = preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-                listagem.innerHTML += `
+                html = `
                     <li index="${index}">
                         <img src="${imagem}">
                         <div class="cartContainer__list--description">
@@ -37,6 +44,7 @@ class CarrinhoControll{
                     </li>`;
             });
         }
+        (carrinho === null || iqual == true)? listagem.innerHTML = html : listagem.innerHTML += html;
         this.montarFooter();
         this.addEvents();
     }
