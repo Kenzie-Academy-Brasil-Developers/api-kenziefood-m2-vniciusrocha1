@@ -1,12 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Grupo 1</title>
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>E-Commerce - Grupo 1</title>
+    <script src="https://kit.fontawesome.com/9f558f1f8f.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+    <header class="header">
+        <div class="header__logoContainer">
+            <img class="logoContainer__logo" src="/src/img/Logo.png">
+        </div>
+        <div class="header__searchContainer">
+            <input class="searchContainer__input" type="search" placeholder="Pesquisar por produto">
+            <button class="searchContainer__button" type="submit"><i class="fa fa-search"></i></i></button>
+        </div>
+    </header>
+
+    <main class="main">
+        <nav class="nav">
+            <div class="nav__filterContainer">
+                <button filter="todos" class="filterContainer__btn--todos">Todos</button>
+                <button filter="panificadora" class="filterContainer__btn--panificadora">
+                    <img class="btn__icon" src="/src/img/Icon_bread.png">
+                    Panificadora
+                </button>
+                <button filter="frutas" class="filterContainer__btn--frutas">
+                    <img class="btn__icon" src="/src/img/Icon_fruits.png">
+                    Frutas
+                </button>
+                <button filter="bebidas" class="filterContainer__btn--bebidas">
+                    <img class="btn__icon" src="/src/img/Icon_glass of wine.png">
+                    Bebidas
+                </button>
+                <!--MOCK-->
+                <!-- <button filter="" class="filterContainer__btn--"></button> -->
+            </div>
+        </nav>
+        <section class=section>
+            <div class="section__productsContainer">
+                <ul>
+                    <!--MOCK-->
+                    <!-- LISTA DE PRODUTOS -->
+                </ul>
+            </div>
+        </section>
+        <aside class="aside">
+            <div class="aside__cartContainer">
+                <header class="cartContainer__header">
+                    <i class="fa fa-cart-arrow-down"></i>
+                    <span>Carrinho</span>
+                </header>
+                <div class="cartContainer__list">
+                    <img class="cart__icon" src="/src/img/shopping-bag.png">
+                    <span class="list--span1">Ops!</span>
+                    <span class="list--span2">Por enquanto não temos produtos no carrinho</span>
+                    <ul>
+                        <!--MOCK-->
+                        <!-- ITENS ADICIONADOS AO CARRINHO -->
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </main>
+
     <script type="module" src="./src/js/script.js"></script>
 </body>
+
 </html>
