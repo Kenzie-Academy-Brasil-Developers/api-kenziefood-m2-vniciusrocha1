@@ -10,41 +10,23 @@ class VitrineControll {
         arr.forEach(item => {
             let { id, nome, preco, categoria, descricao, imagem } = item;
             let precoConvertido = preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-            let suporte = document.createElement("li");
-            suporte.setAttribute('idP', id);
-            let img = document.createElement("img");
-            let secao = document.createElement("span");
-            let titulo = document.createElement("span");
-            let subTitulo = document.createElement("p");
-            let containerPreco = document.createElement('div');
-            let valor = document.createElement("span");
-            let botao = document.createElement("button");
-            let icone = document.createElement("i");
-            let divSecao = document.createElement("div");
-            let imgSecao = document.createElement("img");
-            secao.innerText = categoria;
-            img.src = imagem;
-            titulo.innerText = nome;
-            subTitulo.innerText = descricao;
-            valor.innerText = precoConvertido;
-            imgSecao.src = this.caminhoImgSecao(categoria);
-            (id !== 2) ? img.setAttribute('class', 'imgProduto') : img.setAttribute('class', 'panqueca');
-            divSecao.setAttribute('filter', categoria.toLowerCase());
-            divSecao.setAttribute('class', `div__centralizar--categoria ${this.classesFiltro(categoria)}`);
-            icone.setAttribute('class', 'fas fa-cart-plus');
-            containerPreco.setAttribute('class', 'productsContainer__list--footer');
-            botao.setAttribute('class', 'btn--addCart');
-            botao.appendChild(icone);
-            containerPreco.appendChild(valor);
-            containerPreco.appendChild(botao);
-            divSecao.appendChild(imgSecao);
-            divSecao.appendChild(secao);
-            suporte.appendChild(img);
-            suporte.appendChild(divSecao);
-            suporte.appendChild(titulo);
-            suporte.appendChild(subTitulo);
-            suporte.appendChild(containerPreco);
-            listagem.appendChild(suporte);
+            let itemVitrine =`
+            <li>
+                <img src="${imagem}">
+                <div filter="${categoria.toLowerCase()}" class="div__centralizar--categoria ${this.classesFiltro(categoria)}">
+                    <img src="${this.caminhoImgSecao(categoria)}">
+                    <span>${categoria}</span>
+                </div>
+                <span>${nome}</span>
+                <p>${descricao}</p>
+                <div class="productsContainer__list--footer">
+                    <span>${precoConvertido}</span>
+                    <button>
+                        <i class="fas fa-cart-plus"></i> 
+                    </button>
+                </div>
+            </li>`;
+            listagem.appendChild(itemVitrine);
         });
         call = true;
         this.addEventsCardButton();
