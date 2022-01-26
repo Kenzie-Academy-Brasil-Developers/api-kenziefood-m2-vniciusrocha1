@@ -2,12 +2,10 @@ import { KenzieFoodControll } from "./KenzieFood.js";
 class CarrinhoControll {
     static async addCarrinho(id) {
         if (id !== undefined) {
-            let getDoProduto = KenzieFoodControll.get(id);
-            let produto = await getDoProduto;
+            let produto = await KenzieFoodControll.get(id);
             let readCarrinho = this.getCard();
             let carrinho = (readCarrinho !== null) ? readCarrinho : [];
-            carrinho.push(produto);
-            this.setCard(carrinho);
+            this.setCard([...carrinho,produto]);
             this.criandoDOM();
         }
     }
@@ -19,7 +17,7 @@ class CarrinhoControll {
     }
     static criandoDOM() {
         let carrinho = this.getCard();
-        let listagem   = document.getElementsByClassName("cartContainer__list")[0];
+        let listagem = document.getElementsByClassName("cartContainer__list")[0];
         listagem.innerHTML = `
             <div class="aside__cartContainer--empty">
                 <img class="cart__icon" src="/src/img/shopping-bag.png">

@@ -35,14 +35,14 @@ class VitrineControll {
         return (procurar == 'todos') ? db : db.filter((item) => item.categoria.toUpperCase().includes(procurar.toUpperCase()) || item.nome.toUpperCase().includes(procurar.toUpperCase()));
     }
     static caminhoImgSecao(secao) {
-        let retorno = (secao === "Panificadora")?"./src/img/Icon_bread.png" :secao;
+        let retorno = (secao === "Panificadora")?"./src/img/Icon_bread.png" : secao;
         retorno = (retorno === "Bebidas")?"./src/img/Icon_glass of wine.png" : retorno;
-        return (retorno === "Frutas")?"./src/img/Icon_fruits.png" : retorno;     
+        return (retorno === "Frutas")?"./src/img/Icon_fruits.png" : retorno;
     }
     static classesFiltro(secao) {
-        let filtrada = (secao === "Panificadora")?"filterContainer__btn--panificadora":secao;
-        filtrada =(filtrada ==="Bebidas")?"filterContainer__btn--bebidas":filtrada;
-        return (filtrada === "Frutas")?"filterContainer__btn--frutas":filtrada;
+        let filtrada = (secao === "Panificadora")?"filterContainer__btn--panificadora": secao;
+        filtrada =(filtrada ==="Bebidas")?"filterContainer__btn--bebidas": filtrada;
+        return (filtrada === "Frutas")?"filterContainer__btn--frutas": filtrada;
     }
     static addEventFilter() {
         document.querySelector(".searchContainer__input").addEventListener('keyup', e => {
