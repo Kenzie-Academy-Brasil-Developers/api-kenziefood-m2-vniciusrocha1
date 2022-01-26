@@ -49,4 +49,4 @@ const produtos = [
 		"imagem": "https://kenzie-academy-brasil.gitlab.io/fullstack/frontend/modulo2/sprint4/img/capstone-images/laranja.png",
 	}
 ];
-export { produtos };
+export {produtos};
