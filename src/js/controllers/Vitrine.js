@@ -8,25 +8,24 @@ class VitrineControll {
         listagem.innerHTML = '';
         let arr = await this.filtraItensVitrine(procurar);
         arr.forEach(item => {
-            let { id, nome, preco, categoria, descricao, imagem } = item;
+            let {id, nome, preco, categoria, descricao, imagem} = item;
             let precoConvertido = preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+            let classIMG = (id !== 2) ? 'imgProduto' : 'panqueca';
             let itemVitrine =`
-                <li>
-                    <img src="${imagem}">
-                    <div filter="${categoria.toLowerCase()}" class="div__centralizar--categoria ${this.classesFiltro(categoria)}">
-                        <img src="${this.caminhoImgSecao(categoria)}">
-                        <span>${categoria}</span>
-                    </div>
-                    <span>${nome}</span>
-                    <p>${descricao}</p>
-                    <div class="productsContainer__list--footer">
-                        <span>${precoConvertido}</span>
-                        <button>
-                            <i class="fas fa-cart-plus"></i> 
-                        </button>
-                    </div>
-                </li>`;
-            listagem.appendChild(itemVitrine);
+            <li idP="${id}">
+                <img class="${classIMG}" src="${imagem}">
+                <div filter="${categoria.toLowerCase()}" class="div__centralizar--categoria ${this.classesFiltro(categoria)}">
+                    <img src="${this.caminhoImgSecao(categoria)}">
+                    <span>${categoria}</span>
+                </div>
+                <span>${nome}</span>
+                <p>${descricao}</p>
+                <div class="productsContainer__list--footer">
+                    <span>${precoConvertido}</span>
+                    <button class="btn--addCart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </li>`;
+            listagem.innerHTML += itemVitrine;
         });
         call = true;
         this.addEventsCardButton();
