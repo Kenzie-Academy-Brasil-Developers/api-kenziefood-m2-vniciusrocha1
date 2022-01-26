@@ -1,8 +1,8 @@
 class KenzieFoodControll {
     static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQzMDQ0MjIwLCJleHAiOjE2NDM5MDgyMjAsInN1YiI6IltvYmplY3QgVW5kZWZpbmVkXSJ9.U4tH6ChE1YucabIGUTWdycLJVhsM3hico87drfCFSdQ";
     static apiURL = "https://kenzie-food-api.herokuapp.com";
-    static endpoint = "my/product";
-    // static endpoint = "product";
+    // static endpoint = "my/product";
+    static endpoint = "product";
     static fetchURL = `${this.apiURL}/${this.endpoint}`;
     static requisicao = {headers: {Authorization:`Bearer ${this.token}`}};
     static async get(id = 0) {
@@ -13,8 +13,9 @@ class KenzieFoodControll {
         if (this.endpoint === "my/product") {
             let req = this.requisicao;
             req.method = "POST";
-            req.body = body;
-            return await fetch(`${this.fetchURL}`, req).then(res => res.json());
+            let retorno = await fetch(`${this.fetchURL}`, req).then(res => res.json());
+            console.log('retorno', retorno);
+            return retorno;
         }
     }
     static patch(id = 0) {
@@ -26,6 +27,9 @@ class KenzieFoodControll {
         let newId = (id > 0) ? `/${id}` : "";
         if (this.endpoint === "my/product") {
         }
+    }
+    static makeAllPosts(arr){
+        arr.forEach(item => this.post(item));
     }
 }
 export { KenzieFoodControll };
