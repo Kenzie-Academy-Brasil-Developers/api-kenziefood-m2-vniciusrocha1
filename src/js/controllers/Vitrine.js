@@ -35,22 +35,14 @@ class VitrineControll {
         return (procurar == 'todos') ? db : db.filter((item) => item.categoria.toUpperCase().includes(procurar.toUpperCase()) || item.nome.toUpperCase().includes(procurar.toUpperCase()));
     }
     static caminhoImgSecao(secao) {
-        if (secao === "Panificadora") {
-            return "./src/img/Icon_bread.png";
-        } else if (secao === "Bebidas") {
-            return "./src/img/Icon_glass of wine.png";
-        } else if (secao === "Frutas") {
-            return "./src/img/Icon_fruits.png";
-        }
+        let retorno = (secao === "Panificadora")?"./src/img/Icon_bread.png" :secao;
+        retorno = (retorno === "Bebidas")?"./src/img/Icon_glass of wine.png" : retorno;
+        return (retorno === "Frutas")?"./src/img/Icon_fruits.png" : retorno;     
     }
     static classesFiltro(secao) {
-        if (secao === "Panificadora") {
-            return "filterContainer__btn--panificadora";
-        } else if (secao === "Bebidas") {
-            return "filterContainer__btn--bebidas";
-        } else if (secao === "Frutas") {
-            return "filterContainer__btn--frutas";
-        }
+        let filtrada = (secao === "Panificadora")?"filterContainer__btn--panificadora":secao;
+        filtrada =(filtrada ==="Bebidas")?"filterContainer__btn--bebidas":filtrada;
+        return (filtrada === "Frutas")?"filterContainer__btn--frutas":filtrada;
     }
     static addEventFilter() {
         document.querySelector(".searchContainer__input").addEventListener('keyup', e => {
