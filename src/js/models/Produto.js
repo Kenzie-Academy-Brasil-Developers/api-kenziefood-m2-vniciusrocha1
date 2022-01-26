@@ -1,5 +1,5 @@
-class ModelProduto{
-    constructor({}){
+class ModelProduto {
+    constructor({ }) {
     }
 }
-export {ModelProduto};
+export { ModelProduto };

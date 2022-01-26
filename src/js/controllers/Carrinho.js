@@ -1,11 +1,11 @@
-import {KenzieFoodControll} from "./KenzieFood.js";
-class CarrinhoControll{
-    static async addCarrinho(id){
-        if(id !== undefined){
+import { KenzieFoodControll } from "./KenzieFood.js";
+class CarrinhoControll {
+    static async addCarrinho(id) {
+        if (id !== undefined) {
             let getDoProduto = KenzieFoodControll.get(id);
             let produto = await getDoProduto;
             let readCarrinho = this.getCard();
-            let carrinho = (readCarrinho !== null)? readCarrinho : [];
+            let carrinho = (readCarrinho !== null) ? readCarrinho : [];
             carrinho.push(produto);
             this.setCard(carrinho);
             this.criandoDOM();
@@ -18,7 +18,7 @@ class CarrinhoControll{
         localStorage.setItem('carrinho', JSON.stringify(obj));
     }
     static criandoDOM() {
-        let listagem   = document.getElementsByClassName("cartContainer__list")[0];
+        let listagem = document.getElementsByClassName("cartContainer__list")[0];
         let html = `
             <div class="aside__cartContainer--empty">
                 <img class="cart__icon" src="/src/img/shopping-bag.png">
@@ -27,13 +27,13 @@ class CarrinhoControll{
             </div>`;
         let iqual = true;
         let carrinho = this.getCard();
-        if(carrinho !== null){
+        if (carrinho !== null) {
             carrinho.forEach((item, index) => {
-                iqual = (index === 0)? true : false;
-                let {categoria, nome, preco, imagem, id} = item;
-                let valorConvertido = preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+                iqual = (index === 0) ? true : false;
+                let { categoria, nome, preco, imagem, id } = item;
+                let valorConvertido = preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                 html = `
-                    <li index="${index}">
+                    <li class="cartContainer__item" index="${index}">
                         <img src="${imagem}">
                         <div class="cartContainer__list--description">
                             <span class="product__title">${nome}</span>
@@ -44,17 +44,17 @@ class CarrinhoControll{
                     </li>`;
             });
         }
-        (carrinho === null || iqual == true)? listagem.innerHTML = html : listagem.innerHTML += html;
+        (carrinho === null || iqual == true) ? listagem.innerHTML = html : listagem.innerHTML += html;
         this.montarFooter();
         this.addEvents();
     }
     static montarFooter() {
         let carrinho = this.getCard();
         let total = 0;
-        let footer   = document.getElementsByClassName("cartContainer__footer")[0];
+        let footer = document.getElementsByClassName("cartContainer__footer")[0];
         carrinho.forEach(item => total += Number(item.preco));
-        let qtd        = carrinho.length;
-        let valorConvertido = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+        let qtd = carrinho.length;
+        let valorConvertido = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
         footer.innerHTML = `
             <div class="footer__quantity">
             <span>Quantidade</span>
@@ -65,7 +65,7 @@ class CarrinhoControll{
                 <span>${valorConvertido}</span>
             </div>`;
     }
-    static excluirCarrinho(index=-1) {
+    static excluirCarrinho(index = -1) {
         let carrinho = this.getCard();
         if (index >= 0) carrinho.splice(index, 1);
         this.setCard(carrinho);
@@ -80,4 +80,4 @@ class CarrinhoControll{
         }));
     }
 }
-export {CarrinhoControll}
+export { CarrinhoControll }
