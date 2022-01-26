@@ -52,7 +52,7 @@ body {
 .header__searchContainer {
     box-sizing: border-box;
     position: absolute;
-    width: 343px;
+    width: 280px;
     height: 54px;
     left: 17px;
     top: 82px;
@@ -68,10 +68,9 @@ body {
     top: 0%;
     bottom: 0%;
     background: var(--grey-1);
-    border: 1.65px solid var(--grey-1);
     box-sizing: border-box;
     border-radius: 33px;
-
+    border: 1.65px solid var(--grey-1);
     font-size: 14px;
     line-height: 18px;
     color: var(--grey-3);
@@ -90,7 +89,6 @@ body {
     background-color: var(--color-primary-50);
     color: var(--color-primary);
     border: 1.65px solid var(--grey-1);
-    box-sizing: border-box;
     border-radius: 50%;
 }
 
@@ -98,6 +96,7 @@ body {
     box-sizing: border-box;
     background-color: var(--color-primary);
     color: var(--white);
+    border: hidden;
     cursor: pointer;
 }
 
@@ -107,7 +106,6 @@ body {
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-
     position: absolute;
     overflow: auto;
     width: 350px;
@@ -116,10 +114,39 @@ body {
     top: 153px;
 }
 
+.btn--categoria:hover {
+    box-sizing: border-box;
+    border: 1.65px solid var(--grey-4);
+    cursor: pointer;
+}
+
 .btn__icon {
     box-sizing: border-box;
     position: relative;
     right: 10px;
+}
+
+.btn--addProduct {
+    box-sizing: border-box;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    left: 103%;
+    right: 1.93%;
+    top: 10.2%;
+    bottom: 8.16%;
+    background-color: rgb(189, 189, 255);
+    color: rgb(0, 0, 255);
+    border: 1.65px solid var(--grey-1);
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.btn--addProduct:hover {
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 255);
+    color: var(--white);
+    cursor: pointer;
 }
 
 .btn--editProduct {
@@ -208,12 +235,6 @@ body {
     width: 118px;
     background-color: var(--product-4);
     border: 1.5px solid var(--product-4);
-}
-
-.btn--categoria:hover {
-    box-sizing: border-box;
-    border: 1.5px solid var(--grey-4);
-    cursor: pointer;
 }
 
 .section__productsContainer {
