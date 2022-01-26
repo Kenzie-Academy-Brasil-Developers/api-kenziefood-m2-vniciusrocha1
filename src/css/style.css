@@ -480,7 +480,7 @@ body {
     body {
         box-sizing: border-box;
         flex-direction: row;
-        width: 95vw;
+        width: 1500px;
         margin: 50px;
     }
 
@@ -534,7 +534,7 @@ body {
 
     .aside__cartContainer {
         box-sizing: border-box;
-        left: 1100px;
+        left: 80%;
         top: 80px;
     }
 }
