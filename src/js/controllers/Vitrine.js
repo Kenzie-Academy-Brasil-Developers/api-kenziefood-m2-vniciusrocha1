@@ -1,5 +1,5 @@
-import { KenzieFoodControll } from "./KenzieFood.js";
-import { CarrinhoControll } from "./Carrinho.js";
+import {KenzieFoodControll} from "./KenzieFood.js";
+import {CarrinhoControll}   from "./Carrinho.js";
 let call = true;
 class VitrineControll {
     static async addItensVitrine(procurar) {
@@ -94,4 +94,4 @@ class VitrineControll {
         });
     }
 }
-export { VitrineControll }
+export {VitrineControll}

@@ -18,22 +18,20 @@ class CarrinhoControll {
         localStorage.setItem('carrinho', JSON.stringify(obj));
     }
     static criandoDOM() {
-        let listagem = document.getElementsByClassName("cartContainer__list")[0];
-        let html = `
+        let carrinho = this.getCard();
+        let listagem   = document.getElementsByClassName("cartContainer__list")[0];
+        listagem.innerHTML = `
             <div class="aside__cartContainer--empty">
                 <img class="cart__icon" src="/src/img/shopping-bag.png">
                 <span class="list--span1">Ops!</span>
                 <span class="list--span2">Por enquanto não temos produtos no carrinho</span>
             </div>`;
-        let iqual = true;
-        let carrinho = this.getCard();
-        if (carrinho !== null) {
+        if(carrinho !== null){
             carrinho.forEach((item, index) => {
-                iqual = (index === 0) ? true : false;
-                let { categoria, nome, preco, imagem, id } = item;
-                let valorConvertido = preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-                html = `
-                    <li class="cartContainer__item" index="${index}">
+                let {categoria, nome, preco, imagem, id} = item
+                let valorConvertido = preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+                let html = `
+                    <li index="${index}">
                         <img src="${imagem}">
                         <div class="cartContainer__list--description">
                             <span class="product__title">${nome}</span>
@@ -42,9 +40,9 @@ class CarrinhoControll {
                         </div>
                         <button class="cartContainer__trash" ><i class="fas fa-trash"></i></button>
                     </li>`;
+                (index>0)? listagem.innerHTML += html: listagem.innerHTML = html;
             });
         }
-        (carrinho === null || iqual == true) ? listagem.innerHTML = html : listagem.innerHTML += html;
         this.montarFooter();
         this.addEvents();
     }
