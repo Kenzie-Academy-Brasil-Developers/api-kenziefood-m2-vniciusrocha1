@@ -1,17 +1,17 @@
 import {KenzieFoodControll} from "./KenzieFood.js";
-import {CarrinhoControll} from "./Carrinho.js";
+import {CarrinhoControll}   from "./Carrinho.js";
 let call = true;
 class VitrineControll {
     static async addItensVitrine(procurar) {
         call = false;
         let listagem = document.querySelector(".productsContainer__list");
-        listagem.innerHTML ='';
+        listagem.innerHTML = '';
         let arr = await this.filtraItensVitrine(procurar);
         arr.forEach(item => {
-            let {id, nome, preco, categoria, descricao, imagem} = item;
-            let precoConvertido = preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL' });
+            let { id, nome, preco, categoria, descricao, imagem } = item;
+            let precoConvertido = preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             let suporte = document.createElement("li");
-            suporte.setAttribute('idP',id);
+            suporte.setAttribute('idP', id);
             let img = document.createElement("img");
             let secao = document.createElement("span");
             let titulo = document.createElement("span");
@@ -28,8 +28,9 @@ class VitrineControll {
             subTitulo.innerText = descricao;
             valor.innerText = precoConvertido;
             imgSecao.src = this.caminhoImgSecao(categoria);
+            (id !== 2) ? img.setAttribute('class', 'imgProduto') : img.setAttribute('class', 'panqueca');
             divSecao.setAttribute('filter', categoria.toLowerCase());
-            divSecao.setAttribute('class',`div__centralizar--categoria ${this.classesFiltro(categoria)}`);
+            divSecao.setAttribute('class', `div__centralizar--categoria ${this.classesFiltro(categoria)}`);
             icone.setAttribute('class', 'fas fa-cart-plus');
             containerPreco.setAttribute('class', 'productsContainer__list--footer');
             botao.setAttribute('class', 'btn--addCart');
@@ -70,21 +71,21 @@ class VitrineControll {
             return "filterContainer__btn--frutas";
         }
     }
-    static addEventFilter(){
+    static addEventFilter() {
         document.querySelector(".searchContainer__input").addEventListener('keyup', e => {
-            if (call) VitrineControll.addItensVitrine( e.target.value);
+            if (call) VitrineControll.addItensVitrine(e.target.value);
         });
         let botoesCategoria = document.querySelectorAll(".btn--categoria");
-        botoesCategoria.forEach((botao)=>{
+        botoesCategoria.forEach((botao) => {
             botao.addEventListener('click', (e) => {
                 let procurar = e.target.getAttribute("filter");
                 if (call) VitrineControll.addItensVitrine(procurar);
             });
         });
     }
-    static addEventsCardButton(){
+    static addEventsCardButton() {
         let botoesAddCart = document.querySelectorAll(".btn--addCart");
-        botoesAddCart.forEach((botao)=>{
+        botoesAddCart.forEach((botao) => {
             botao.addEventListener('click', (e) => {
                 let li = e.target.closest('li');
                 let id = li.getAttribute('idP');
@@ -93,4 +94,4 @@ class VitrineControll {
         });
     }
 }
-export {VitrineControll }
+export {VitrineControll}

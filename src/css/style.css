@@ -1,4 +1,4 @@
-:root{
+:root {
     box-sizing: border-box;
     /* Primary Palette */
     --color-primary: #FF2253;
@@ -17,18 +17,17 @@
     --grey-2: #E9ECEF;
     --grey-3: #868E96;
     --grey-4: #212529;
-
     --white: #FFFFFF;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-html{
+html {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -41,7 +40,7 @@ body{
     border-radius: 10px;
 }
 
-.logoContainer__logo{
+.logoContainer__logo {
     box-sizing: border-box;
     position: absolute;
     width: 123px;
@@ -50,7 +49,7 @@ body{
     top: 21px;
 }
 
-.header__searchContainer{
+.header__searchContainer {
     box-sizing: border-box;
     position: absolute;
     width: 343px;
@@ -59,7 +58,7 @@ body{
     top: 82px;
 }
 
-.searchContainer__input{
+.searchContainer__input {
     box-sizing: border-box;
     position: absolute;
     width: 343px;
@@ -79,7 +78,7 @@ body{
     padding-left: 15px;
 }
 
-.searchContainer__button{
+.searchContainer__button {
     box-sizing: border-box;
     position: absolute;
     width: 44px;
@@ -95,14 +94,14 @@ body{
     border-radius: 50%;
 }
 
-.searchContainer__button:hover{
+.searchContainer__button:hover {
     box-sizing: border-box;
     background-color: var(--color-primary);
     color: var(--white);
     cursor: pointer;
 }
 
-.nav__filterContainer{
+.nav__filterContainer {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -117,7 +116,7 @@ body{
     top: 153px;
 }
 
-.btn__icon{
+.btn__icon {
     box-sizing: border-box;
     position: relative;
     right: 10px;
@@ -126,7 +125,7 @@ body{
 .filterContainer__btn--todos,
 .filterContainer__btn--panificadora,
 .filterContainer__btn--frutas,
-.filterContainer__btn--bebidas{
+.filterContainer__btn--bebidas {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -142,7 +141,7 @@ body{
     flex-grow: 0;
 }
 
-.filterContainer__btn--todos{
+.filterContainer__btn--todos {
     box-sizing: border-box;
     order: 0;
     width: 72px;
@@ -150,7 +149,7 @@ body{
     border: 1.5px solid var(--grey-1);
 }
 
-.filterContainer__btn--panificadora{
+.filterContainer__btn--panificadora {
     box-sizing: border-box;
     order: 1;
     width: 148px;
@@ -158,7 +157,7 @@ body{
     border: 1.5px solid var(--product-2);
 }
 
-.filterContainer__btn--frutas{
+.filterContainer__btn--frutas {
     box-sizing: border-box;
     order: 2;
     width: 108px;
@@ -166,7 +165,7 @@ body{
     border: 1.5px solid var(--product-3);
 }
 
-.filterContainer__btn--bebidas{
+.filterContainer__btn--bebidas {
     box-sizing: border-box;
     order: 3;
     width: 118px;
@@ -174,32 +173,29 @@ body{
     border: 1.5px solid var(--product-4);
 }
 
-.filterContainer__btn--todos:hover,
-.filterContainer__btn--panificadora:hover,
-.filterContainer__btn--frutas:hover,
-.filterContainer__btn--bebidas:hover{
+.btn--categoria:hover {
     box-sizing: border-box;
     border: 1.5px solid var(--grey-4);
     cursor: pointer;
 }
 
-.section__productsContainer{
+.section__productsContainer {
     box-sizing: border-box;
     position: absolute;
     overflow: auto;
     width: 350px;
-    height: 370px;
+    height: 380px;
     left: 18px;
     top: 230px;
 }
 
-.productsContainer__list{
+.productsContainer__list {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
 }
 
-.productsContainer__list--footer{
+.productsContainer__list--footer {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -207,34 +203,48 @@ body{
     align-items: center;
 }
 
-.productsContainer__list li{
+.productsContainer__list li {
     box-sizing: border-box;
     margin-right: 20px;
 }
 
-.productsContainer__list li img{
+.productsContainer__list li .imgProduto {
     box-sizing: border-box;
     border: 3px solid var(--color-primary-50);
+    border-radius: 8px;
+}
+
+.productsContainer__list li .panqueca {
     box-sizing: border-box;
     border-radius: 8px;
 }
-.productsContainer__list li img:hover{
+
+.productsContainer__list li .imgProduto:hover,
+.panqueca:hover {
     box-sizing: border-box;
     border: 3px solid var(--color-primary);
 }
-.productsContainer__list span{
+
+.panqueca {
+    width: 300px;
+    height: 200px;
+}
+
+.productsContainer__list span {
     box-sizing: border-box;
     font-size: 17px;
     font-weight: bold;
     line-height: 27px;
 }
-.productsContainer__list p{
+
+.productsContainer__list p {
     box-sizing: border-box;
     font-size: 12px;
     line-height: 16px;
     color: var(--grey-3);
 }
-.productsContainer__list button{
+
+.productsContainer__list button {
     box-sizing: border-box;
     width: 44px;
     height: 44px;
@@ -244,13 +254,15 @@ body{
     box-sizing: border-box;
     border-radius: 50%;
 }
-.productsContainer__list button:hover{
+
+.productsContainer__list button:hover {
     box-sizing: border-box;
     background-color: var(--color-secondary);
     color: var(--white);
     cursor: pointer;
 }
-.aside__cartContainer{
+
+.aside__cartContainer {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -261,7 +273,8 @@ body{
     left: 18px;
     margin: 20px 0px;
 }
-.cartContainer__header{
+
+.cartContainer__header {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -277,15 +290,18 @@ body{
     border-radius: 14px 14px 0px 0px;
     margin-bottom: 5px;
 }
-.cartContainer__header span{
+
+.cartContainer__header span {
     box-sizing: border-box;
     margin-left: 25px;
 }
-.fa-cart-arrow-down{
+
+.fa-cart-arrow-down {
     box-sizing: border-box;
     margin-left: 25px;
 }
-.aside__cartContainer--full{
+
+.aside__cartContainer--full {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -296,52 +312,62 @@ body{
 
     background-color: var(--white);
 }
-.cartContainer__list{
+
+.cartContainer__list {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: auto;
     height: 410px;
-    width: 340px;
+    width: 350px;
 }
-.cartContainer__list li{
+
+.cartContainer__list li {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
     margin: 20px;
+    width: 85%;
 }
-.cartContainer__list--description{
+
+.cartContainer__list--description {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     margin: 0px 5px;
 }
-.cartContainer__list img{
+
+.cartContainer__list img {
     box-sizing: border-box;
     width: 70px;
     height: 70px;
     border-radius: 8px;
 }
-.product__title{
+
+.product__title {
     box-sizing: border-box;
     font-size: 14px;
     font-weight: bold;
     line-height: 25px;
+    width: 200px;
 }
-.product__category{
+
+.product__category {
     box-sizing: border-box;
     font-size: 10px;
     color: var(--grey-3);
     line-height: 25px;
 }
-.product__price{
+
+.product__price {
     box-sizing: border-box;
     font-size: 12px;
     color: var(--grey-4);
     line-height: 25px;
 }
-.cartContainer__trash{
+
+.cartContainer__trash {
     box-sizing: border-box;
     width: 25px;
     height: 25px;
@@ -350,34 +376,49 @@ body{
     background-color: var(--grey-1);
     color: var(--grey-3);
     cursor: pointer;
+    font-size: 13.5px;
 }
-.fa-trash{
-    box-sizing: border-box;
-    width: 9px;
-    height: 12px;
+
+.cartContainer__trash:hover {
+    color: var(--color-primary);
 }
-.aside__cartContainer--empty span{
+
+.aside__cartContainer--empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 340px;
+    height: 432px;
+    background-color: var(--grey-1);
+}
+
+.aside__cartContainer--empty span {
     box-sizing: border-box;
     width: 218px;
 
     text-align: center;
     color: var(--grey-3);
 }
-.cart__icon{
+
+.cart__icon {
     box-sizing: border-box;
     margin-bottom: 25px;
 }
-.list--span1{
+
+.list--span1 {
     box-sizing: border-box;
     font-weight: bold;
     font-size: 17px;
     margin-bottom: 25px;
 }
-.list--span2{
+
+.list--span2 {
     box-sizing: border-box;
     font-size: 15px;
 }
-.footer__quantity{
+
+.footer__quantity {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -388,11 +429,13 @@ body{
     background-color: var(--grey-1);
     font-weight: bold;
 }
-.footer__quantity span{
+
+.footer__quantity span {
     box-sizing: border-box;
     margin: 0px 25px;
 }
-.footer_total{
+
+.footer_total {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -403,11 +446,13 @@ body{
     background-color: var(--white);
     font-weight: bold;
 }
-.footer_total span{
+
+.footer_total span {
     box-sizing: border-box;
     margin: 0px 25px;
 }
-.div__centralizar--categoria{
+
+.div__centralizar--categoria {
     border-radius: 20px;
     display: flex;
     width: 133px;
@@ -419,50 +464,51 @@ body{
     align-items: center;
     font-size: 12px;
 }
-.div__centralizar--categoria span{
+
+.div__centralizar--categoria span {
     font-size: 12px;
     font-weight: 500;
 }
-.div__centralizar--categoria img{
+
+.div__centralizar--categoria img {
     border: 3px solid transparent;
     box-sizing: border-box;
     border-radius: 8px;
 }
 
-@media screen and (min-width: 768px){
-    body{
+@media screen and (min-width: 768px) {
+    body {
         box-sizing: border-box;
         flex-direction: row;
         width: 95vw;
         margin: 50px;
     }
 
-    .logoContainer__logo{
+    .logoContainer__logo {
         box-sizing: border-box;
         left: 0px;
         top: 0px;
     }
 
-    .header__searchContainer{
+    .header__searchContainer {
         box-sizing: border-box;
-        /* position: relative; */
-        left: 75.5%;
+        left: 80%;
         top: 0;
     }
 
-    .nav__filterContainer{
+    .nav__filterContainer {
         box-sizing: border-box;
         overflow: inherit;
         left: 0px;
         top: 100px;
     }
 
-    .section__productsContainer{
+    .section__productsContainer {
         box-sizing: border-box;
         overflow: inherit;
     }
 
-    .productsContainer__list li:nth-child(4){
+    .productsContainer__list li:nth-child(4) {
         box-sizing: border-box;
         position: absolute;
         width: 300px;
@@ -470,7 +516,7 @@ body{
         top: 400px;
     }
 
-    .productsContainer__list li:nth-child(5){
+    .productsContainer__list li:nth-child(5) {
         box-sizing: border-box;
         position: absolute;
         width: 300px;
@@ -478,7 +524,7 @@ body{
         top: 400px;
     }
 
-    .productsContainer__list li:nth-child(6){
+    .productsContainer__list li:nth-child(6) {
         box-sizing: border-box;
         position: absolute;
         width: 300px;
@@ -486,7 +532,7 @@ body{
         top: 400px;
     }
 
-    .aside__cartContainer{
+    .aside__cartContainer {
         box-sizing: border-box;
         left: 1100px;
         top: 80px;
