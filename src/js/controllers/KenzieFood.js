@@ -34,4 +34,4 @@ class KenzieFoodControll {
         produtos.forEach(item => this.post(item));
     }
 }
-export { KenzieFoodControll };
+export {KenzieFoodControll};

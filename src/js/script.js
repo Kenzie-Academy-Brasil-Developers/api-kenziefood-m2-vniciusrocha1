@@ -6,7 +6,7 @@ document.querySelector(".filterContainer__btn--todos").click();
 /*Testes dos extras
 import {KenzieFoodControll}     from "./controllers/KenzieFood.js";
 console.log('get',              await KenzieFoodControll.get());
-console.log('post',             await KenzieFoodControll.insertProducts());
-console.log('patch',            await KenzieFoodControll.patch());
-console.log('delete',           await KenzieFoodControll.delete());
+                                await KenzieFoodControll.insertProducts();
+console.log('patch',            await KenzieFoodControll.patch(2,{"nome":"teste"}));
+                                await KenzieFoodControll.delete(1);
 */
