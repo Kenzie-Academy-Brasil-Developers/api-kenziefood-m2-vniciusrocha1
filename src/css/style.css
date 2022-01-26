@@ -122,6 +122,43 @@ body {
     right: 10px;
 }
 
+.btn--editProduct {
+    box-sizing: border-box;
+    width: 44px;
+    height: 44px;
+    background-color: #fff4b4;
+    border: 1.65px solid var(--grey-1);
+    color: #f0cc00;
+    box-sizing: border-box;
+    border-radius: 50%;
+    margin-left: 120px;
+}
+
+.btn--editProduct:hover {
+    box-sizing: border-box;
+    background-color: #f0cc00;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.btn--addCart {
+    box-sizing: border-box;
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-secondary-50);
+    border: 1.65px solid var(--grey-1);
+    color: var(--color-secondary);
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.btn--addCart:hover {
+    box-sizing: border-box;
+    background-color: var(--color-secondary);
+    color: var(--white);
+    cursor: pointer;
+}
+
 .filterContainer__btn--todos,
 .filterContainer__btn--panificadora,
 .filterContainer__btn--frutas,
@@ -242,24 +279,6 @@ body {
     font-size: 12px;
     line-height: 16px;
     color: var(--grey-3);
-}
-
-.productsContainer__list button {
-    box-sizing: border-box;
-    width: 44px;
-    height: 44px;
-    background-color: var(--color-secondary-50);
-    border: 1.65px solid var(--grey-1);
-    color: var(--color-secondary);
-    box-sizing: border-box;
-    border-radius: 50%;
-}
-
-.productsContainer__list button:hover {
-    box-sizing: border-box;
-    background-color: var(--color-secondary);
-    color: var(--white);
-    cursor: pointer;
 }
 
 .aside__cartContainer {
@@ -480,7 +499,7 @@ body {
     body {
         box-sizing: border-box;
         flex-direction: row;
-        width: 95vw;
+        width: 1500px;
         margin: 50px;
     }
 
@@ -534,7 +553,7 @@ body {
 
     .aside__cartContainer {
         box-sizing: border-box;
-        left: 1100px;
+        left: 80%;
         top: 80px;
     }
 }
