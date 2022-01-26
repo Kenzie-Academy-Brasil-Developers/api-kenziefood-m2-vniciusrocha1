@@ -50,7 +50,7 @@ class VitrineControll {
         document.querySelector(".searchContainer__input").addEventListener('keyup', e => {
             if (call) VitrineControll.addItensVitrine(e.target.value);
         });
-        let botoesCategoria = document.querySelectorAll(".btn--categoria");
+        let botoesCategoria = document.querySelectorAll(".btn--filtro");
         botoesCategoria.forEach((botao) => {
             botao.addEventListener('click', (e) => {
                 let procurar = e.target.getAttribute("filter");
