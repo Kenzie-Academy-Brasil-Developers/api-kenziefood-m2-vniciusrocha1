@@ -9,11 +9,12 @@ class KenzieFoodControll {
         let newId = (id > 0) ? `/${id}` : "";
         return await fetch(`${this.fetchURL}${newId}`, this.requisicao).then(res => res.json());
     }
-    static async post(body = {}){
+    static async post(body){
         if (this.endpoint === "my/product") {
             let req = this.requisicao;
             req.method = "POST";
-            let retorno = await fetch(`${this.fetchURL}`, req).then(res => res.json());
+            req.body = body;
+            let retorno = await fetch(this.fetchURL, req).then(res => res.json());
             console.log('retorno', retorno);
             return retorno;
         }
