@@ -11,21 +11,21 @@ class VitrineControll {
             let { id, nome, preco, categoria, descricao, imagem } = item;
             let precoConvertido = preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             let itemVitrine =`
-            <li>
-                <img src="${imagem}">
-                <div filter="${categoria.toLowerCase()}" class="div__centralizar--categoria ${this.classesFiltro(categoria)}">
-                    <img src="${this.caminhoImgSecao(categoria)}">
-                    <span>${categoria}</span>
-                </div>
-                <span>${nome}</span>
-                <p>${descricao}</p>
-                <div class="productsContainer__list--footer">
-                    <span>${precoConvertido}</span>
-                    <button>
-                        <i class="fas fa-cart-plus"></i> 
-                    </button>
-                </div>
-            </li>`;
+                <li>
+                    <img src="${imagem}">
+                    <div filter="${categoria.toLowerCase()}" class="div__centralizar--categoria ${this.classesFiltro(categoria)}">
+                        <img src="${this.caminhoImgSecao(categoria)}">
+                        <span>${categoria}</span>
+                    </div>
+                    <span>${nome}</span>
+                    <p>${descricao}</p>
+                    <div class="productsContainer__list--footer">
+                        <span>${precoConvertido}</span>
+                        <button>
+                            <i class="fas fa-cart-plus"></i> 
+                        </button>
+                    </div>
+                </li>`;
             listagem.appendChild(itemVitrine);
         });
         call = true;
