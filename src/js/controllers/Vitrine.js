@@ -8,38 +8,25 @@ class VitrineControll {
         arr.forEach(item => {
             const { id, nome, preco, categoria, descricao, imagem } = item
             let precoConvertido = preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-            const suporte = document.createElement("li")
-            const img = document.createElement("img")
-            const secao = document.createElement("span")
-            const titulo = document.createElement("span")
-            const subTitulo = document.createElement("p")
-            const containerPreco = document.createElement('div')
-            const valor = document.createElement("span")
-            const botao = document.createElement("button")
-            const icone = document.createElement("i")
-            const divSecao = document.createElement("div")
-            const imgSecao = document.createElement("img")
-            secao.innerText = categoria
-            img.src = imagem
-            titulo.innerText = nome
-            subTitulo.innerText = descricao
-            valor.innerText = precoConvertido
-            imgSecao.src = this.caminhoImgSecao(categoria)
-            divSecao.setAttribute('filter', categoria.toLowerCase())
-            divSecao.setAttribute('class', this.classesFiltro(categoria))
-            icone.setAttribute('class', 'fas fa-cart-plus')
-            containerPreco.setAttribute('class', 'productsContainer__list--footer')
-            botao.appendChild(icone)
-            containerPreco.appendChild(valor)
-            containerPreco.appendChild(botao)
-            divSecao.appendChild(imgSecao)
-            divSecao.appendChild(secao)
-            suporte.appendChild(img)
-            suporte.appendChild(divSecao)
-            suporte.appendChild(titulo)
-            suporte.appendChild(subTitulo)
-            suporte.appendChild(containerPreco)
-            listagem.appendChild(suporte)
+            let itemVitrine =
+            `
+            <li>
+            <img src="${imagem}">
+            <div filter="${categoria.toLowerCase()}" class="div__centralizar--categoria ${this.classesFiltro(categoria)}">
+                <img src="${this.caminhoImgSecao(categoria)}">
+                <span>${categoria}</span>
+            </div>
+                <span>${nome}</span>
+                <p>${descricao}</p>
+                <div class="productsContainer__list--footer">
+                    <span>${precoConvertido}</span>
+                    <button>
+                        <i class="fas fa-cart-plus"></i> 
+                    </button>
+                </div>
+            </li>
+            `
+                listagem.appendChild(itemVitrine)
         });
     }
     static async filtraItensVitrine(procurar) {
