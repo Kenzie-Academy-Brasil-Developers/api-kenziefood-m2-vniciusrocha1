@@ -3,7 +3,7 @@
     /* Primary Palette */
     --color-primary: #FF2253;
     --color-primary-50: #FFE9EE;
-    --color-secondary: #3ba276;
+    --color-secondary: #4ACA94;
     --color-secondary-50: #E4F7EF;
     --color-tertiary: #663fae;
     --color-tertiary-50: #f1ebfb;
@@ -204,7 +204,9 @@ body {
     padding: 15px;
     margin: 0px 22px 0px 0px;
     border-radius: 30px;
-
+    position:relative;
+    bottom:20px;
+    left:15px;
     flex: none;
     flex-grow: 0;
 }
@@ -297,6 +299,13 @@ body {
     font-size: 17px;
     font-weight: bold;
     line-height: 27px;
+}
+.filterContainer__btn--todos span,
+.filterContainer__btn--panificadora span,
+.filterContainer__btn--frutas span,
+.filterContainer__btn--bebidas span {
+    font-size: 12px;
+    font-weight:400;
 }
 
 .productsContainer__list p {
@@ -496,7 +505,7 @@ body {
     margin: 0px 25px;
 }
 
-.div__centralizar--categoria {
+.div__centralizar--categoria,.div__centralizar--filtro {
     border-radius: 20px;
     display: flex;
     width: 133px;
