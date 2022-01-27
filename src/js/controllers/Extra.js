@@ -1,12 +1,13 @@
 import {RotasControll} from "./Rotas.js";
-import { VitrineControll } from "./Vitrine.js";
+import {VitrineControll} from "./Vitrine.js";
 class ExtraControll{
-    static id           = 0;
-    static action       = null;
-    static formValues   = [];
-    static modal        = (display = null)            => (display !== null)? document.querySelector(".modalProduct").style.display = (display == "open")? "block" : "none" : document.querySelector(".modalProduct");
-    static setFormValue = (produto,origem="fetchAPI") => document.querySelector(".formProduct").querySelectorAll(`.form--field`).forEach(field => (origem == "fetchAPI")? this.formValues = this.formatField(field) : (this.action == "insert")? field.value = "" : field.value = produto[field.getAttribute("name").split("--")[1]]);
-    static closeModal   = () => document.querySelector(".modalProduct").style.display = "none";
+    static id            = 0;
+    static action        = null;
+    static body          = [];
+    static configButtons = () => document.querySelectorAll(".disableClass").forEach(value => value.disabled = (this.action == "update")? false : true);
+    static modal         = (display = null)            => (display !== null)? document.querySelector(".modalProduct").style.display = (display == "open")? "block" : "none" : document.querySelector(".modalProduct");
+    static setFormValue  = (produto,origem="fetchAPI") => document.querySelector(".formProduct").querySelectorAll(`.form--field`).forEach(field => (origem == "fetchAPI")? this.body = this.formatField(field) : (this.action == "insert")? field.value = "" : field.value = produto[field.getAttribute("name").split("--")[1]]);
+    static closeModal    = () => document.querySelector(".modalProduct").style.display = "none";
     static async initExtra({action,id=0}) {
         this.modal("open");
         this.id     = id;
@@ -34,20 +35,20 @@ class ExtraControll{
         });
     }
     static async fetchAPI(method){
-        this.formValues = [];
+        this.body = [];
         this.setFormValue();
         let retornoAPI = (method == "GET")? {} :{"msg":`O metodo '${method}' é invalido`};
         if (method == "GET")    retornoAPI = await RotasControll.get({id:this.id});
         if (method == "GET")    this.setFormValue(retornoAPI,'initExtra');
-        if (method == "POST")   retornoAPI = RotasControll.post({formValues:this.formValues});
-        if (method == "PATCH")  retornoAPI = RotasControll.patch({id:this.id,formValues:this.formValues});
+        if (method == "POST")   retornoAPI = RotasControll.post({body:this.body});
+        if (method == "PATCH")  retornoAPI = RotasControll.patch({id:this.id,body:this.body});
         if (method == "DELETE") retornoAPI = RotasControll.delete({id:this.id});
         this.returnAPI({retornoAPI,method});
     }
     static formatField (field){
         let obj = {};
         obj[field.name.split('--')[1]] = field.value;
-        return [...this.formValues,obj];
+        return [...this.body,obj];
     }
     static async returnAPI({retornoAPI={},method=""}){
         let retorno = await retornoAPI;
@@ -55,9 +56,6 @@ class ExtraControll{
         this.action = (method == "POST" && retorno.id)  ? "update"   : this.action;
         if(method == "POST" && retorno.id) this.configButtons();
         if(method == "DELETE" && retorno.msg == undefined) VitrineControll.montarVitrine("todos");
-    }
-    static configButtons(){
-        document.querySelectorAll(".disableClass").forEach(value => value.disabled = (this.action == "update")? false : true);
     }
 }
 export {ExtraControll};

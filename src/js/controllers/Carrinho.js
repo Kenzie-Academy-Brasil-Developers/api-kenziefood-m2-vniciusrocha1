@@ -6,9 +6,9 @@ class CarrinhoControll {
     static montarCarrinho(){
         document.querySelector(".cartContainer__list").innerHTML = `
             <div class="aside__cartContainer--empty">
-            <img class="cart__icon" src="/src/img/shopping-bag.png">
-            <span class="list--span1">Ops!</span>
-            <span class="list--span2">Por enquanto não temos produtos no carrinho</span>
+                <img class="cart__icon" src="/src/img/shopping-bag.png">
+                <span class="list--span1">Ops!</span>
+                <span class="list--span2">Por enquanto não temos produtos no carrinho</span>
             </div>`;
         let carrinho = this.getLocalStorage();
         if(carrinho !== null){
