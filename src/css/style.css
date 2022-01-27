@@ -517,6 +517,10 @@ body {
     border-radius: 8px;
 }
 
+.modal {
+    visibility: hidden;
+}
+
 @media screen and (min-width: 768px) {
     body {
         box-sizing: border-box;
@@ -533,7 +537,7 @@ body {
 
     .header__searchContainer {
         box-sizing: border-box;
-        left: 80%;
+        left: 75%;
         top: 0;
     }
 
@@ -575,7 +579,7 @@ body {
 
     .aside__cartContainer {
         box-sizing: border-box;
-        left: 80%;
+        left: 75%;
         top: 80px;
     }
 
@@ -591,6 +595,7 @@ body {
     /* MODAL */
     .modal {
         display: none;
+        visibility: inherit;
         position: fixed;
         z-index: 1;
         padding-top: 100px;
@@ -749,17 +754,25 @@ body {
 
     .btn--modalClose {
         position: absolute;
-        color: white;
-        top: 5px;
-        left: 470px;
-        font-size: 40px;
-        font-weight: bold;
+        top: 10px;
+        left: 460px;
     }
 
-    .btn--modalClose:hover,
-    .btn--modalClose:focus {
-        color: #000;
-        text-decoration: none;
+    .btn--modalClose:hover {
         cursor: pointer;
+    }
+
+    .fa-xmark:hover {
+        color: var(--color-primary);
+        background-color: var(--white);
+    }
+
+    .fa-xmark {
+        color: var(--white);
+        background-color: var(--);
+        box-sizing: border-box;
+        border-radius: 20%;
+        width: 30px;
+        height: 30px;
     }
 }
