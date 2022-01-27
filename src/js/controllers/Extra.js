@@ -37,25 +37,28 @@ class ExtraControll{
     static async fetchAPI(method){
         this.body = [];
         this.setFormValue();
-        let retornoAPI = (method == "GET")? {} :{"msg":`O metodo '${method}' é invalido`};
-        if (method == "GET")    retornoAPI = await RotasControll.get({id:this.id});
-        if (method == "GET")    this.setFormValue(retornoAPI,'initExtra');
-        if (method == "POST")   retornoAPI = RotasControll.post({body:this.body});
-        if (method == "PATCH")  retornoAPI = RotasControll.patch({id:this.id,body:this.body});
-        if (method == "DELETE") retornoAPI = RotasControll.delete({id:this.id});
-        this.returnAPI({retornoAPI,method});
+        let response = {method};
+        if (method == "GET")    response.body = await RotasControll.get({id:this.id});
+        if (method == "GET")    this.setFormValue(response.body,'initExtra');
+        if (method == "POST")   response.body = RotasControll.post({body:this.body});
+        if (method == "PATCH")  response.body = RotasControll.patch({id:this.id,body:this.body});
+        if (method == "DELETE") RotasControll.delete({id:this.id});
+        this.returnAPI(response);
+    }
+    static async returnAPI({body={},method=""}){
+        if(method !== "DELETE", body !== {}){
+            let retorno = await body;
+            this.id     = (method == "POST" && retorno.id)?    retorno.id : this.id;
+            this.action = (method == "POST" && retorno.id)?    "update"   : this.action;
+            if(method  == "POST" && retorno.id)                this.configButtons();
+        }
+        if(method === "DELETE") ExtraControll.modal("close");
+        if(method !== "GET" && body.error == undefined && body.msg == undefined) VitrineControll.montarVitrine("todos");
     }
     static formatField (field){
         let obj = {};
         obj[field.name.split('--')[1]] = field.value;
         return [...this.body,obj];
-    }
-    static async returnAPI({retornoAPI={},method=""}){
-        let retorno = await retornoAPI;
-        this.id     = (method == "POST" && retorno.id)  ? retorno.id : this.id;
-        this.action = (method == "POST" && retorno.id)  ? "update"   : this.action;
-        if(method == "POST" && retorno.id) this.configButtons();
-        if(method == "DELETE" && retorno.msg == undefined) VitrineControll.montarVitrine("todos");
     }
 }
 export {ExtraControll};

@@ -30,7 +30,6 @@ class VitrineControll {
                 </li>`;
         });
         this.addEvents("excluir");
-        ExtraControll.modal("close");
     }
     static async filtraVitrine(filtro){
         filtro = (filtro == undefined || filtro == null)? document.querySelector(".searchContainer__input").value : filtro;

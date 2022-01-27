@@ -1,7 +1,7 @@
 import { RotasControll }    from "./Rotas.js";
 class CarrinhoControll {
     static addEvents       = ()       => document.querySelectorAll('.cartContainer__trash').forEach(element => element.addEventListener('click', event => this.excluirCarrinho(event.target.closest('li').getAttribute('index'))));
-    static getLocalStorage = ()       => JSON.parse(localStorage.getItem('carrinho'));
+    static getLocalStorage = ()       => {return (localStorage.getItem('carrinho') !== undefined)? JSON.parse(localStorage.getItem('carrinho')) : {}};
     static setLocalStorage = carrinho => localStorage.setItem('carrinho', JSON.stringify(carrinho));
     static montarCarrinho(){
         document.querySelector(".cartContainer__list").innerHTML = `
@@ -11,7 +11,7 @@ class CarrinhoControll {
                 <span class="list--span2">Por enquanto não temos produtos no carrinho</span>
             </div>`;
         let carrinho = this.getLocalStorage();
-        if(carrinho !== null){
+        if(carrinho.length > 0){
             carrinho.forEach((item, index) => {
                 let {categoria=null, nome=null, preco=0, imagem=null, id=0} = item;
                 let valorConvertido = preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
@@ -31,21 +31,23 @@ class CarrinhoControll {
         this.criarFooter({});
         this.addEvents();
     }
-    static criarFooter({total=0}){
-        this.getLocalStorage().forEach(item => total += Number(item.preco));
-        let valor = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        document.querySelector(".cartContainer__footer").innerHTML = `
-            <div class="footer__quantity">
-                <span>Quantidade</span>
-                <span>${this.getLocalStorage().length}</span>
-                </div>
-                <div class="footer_total">
-                <span>Total</span>
-                <span>${valor}</span>
-            </div>`;
+    static criarFooter({total=0,qtd=0}){
+            console.log('Estrou', )
+            let carrinho = this.getLocalStorage();
+            if (carrinho.length > 0) carrinho.forEach(item => total += Number(item.preco));
+            let valor = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+            document.querySelector(".cartContainer__footer").innerHTML = `
+                <div class="footer__quantity">
+                    <span>Quantidade</span>
+                    <span>${qtd}</span>
+                    </div>
+                    <div class="footer_total">
+                    <span>Total</span>
+                    <span>${valor}</span>
+                </div>`;
     }
     static async addCarrinho({id=0,localData=this.getLocalStorage()}){
-        let carrinho = (localData !== null) ? localData : [];
+        let carrinho = (localData !== null && localData.length > 0) ? localData : [];
         this.setLocalStorage([...carrinho,await RotasControll.get({id})]);
         this.montarCarrinho();
     }
