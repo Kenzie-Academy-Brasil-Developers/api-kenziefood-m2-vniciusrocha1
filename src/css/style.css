@@ -248,19 +248,23 @@ body {
     box-sizing: border-box;
     position: absolute;
     overflow: auto;
-    width: 350px;
+    width: 960px;
     height: 380px;
     left: 18px;
     top: 230px;
+    overflow: auto;
 }
 
 .productsContainer__list {
+    width: 300px;
+    height: 350px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
 }
 
 .productsContainer__list--footer {
+    width: 300px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -269,33 +273,37 @@ body {
 }
 
 .productsContainer__list li {
+    width: 300px;
     box-sizing: border-box;
     margin-right: 20px;
 }
 
 .productsContainer__list li .imgProduto {
+    width: 300px;
     box-sizing: border-box;
     border: 3px solid var(--color-primary-50);
     border-radius: 8px;
+    width: 300px;
+    height: 201px;
 }
 
-.productsContainer__list li .panqueca {
-    box-sizing: border-box;
-    border-radius: 8px;
-}
 
 .productsContainer__list li .imgProduto:hover,
 .panqueca:hover {
     box-sizing: border-box;
     border: 3px solid var(--color-primary);
+    cursor: pointer;
 }
 
-.panqueca {
+.productsContainer__list li .panqueca {
     width: 300px;
     height: 200px;
+    box-sizing: border-box;
+    border-radius: 8px;
 }
 
 .productsContainer__list span{
+    width: 300px;
     box-sizing: border-box;
     font-size: 17px;
     font-weight: bold;
@@ -312,10 +320,13 @@ body {
 }
 
 .productsContainer__list p {
+    width: 300px;
     box-sizing: border-box;
     font-size: 12px;
     line-height: 16px;
     color: var(--grey-3);
+    width: 300px;
+    height: 40px;
 }
 
 .aside__cartContainer {
@@ -538,6 +549,10 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+    .imgProduto{
+        width:300px;
+        height:200px;
+    }
     body {
         box-sizing: border-box;
         flex-direction: row;
@@ -570,6 +585,7 @@ body {
     }
 
     .productsContainer__list li:nth-child(4) {
+        width: 300px;
         box-sizing: border-box;
         position: absolute;
         width: 300px;
@@ -578,6 +594,7 @@ body {
     }
 
     .productsContainer__list li:nth-child(5) {
+        width: 300px;
         box-sizing: border-box;
         position: absolute;
         width: 300px;
@@ -586,6 +603,7 @@ body {
     }
 
     .productsContainer__list li:nth-child(6) {
+        width: 300px;
         box-sizing: border-box;
         position: absolute;
         width: 300px;

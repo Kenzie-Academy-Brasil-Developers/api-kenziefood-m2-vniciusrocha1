@@ -32,14 +32,13 @@ class CarrinhoControll {
         this.addEvents();
     }
     static criarFooter({total=0,qtd=0}){
-            console.log('Estrou', )
             let carrinho = this.getLocalStorage();
             if (carrinho.length > 0) carrinho.forEach(item => total += Number(item.preco));
             let valor = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             document.querySelector(".cartContainer__footer").innerHTML = `
                 <div class="footer__quantity">
                     <span>Quantidade</span>
-                    <span>${qtd}</span>
+                    <span>${carrinho.length}</span>
                     </div>
                     <div class="footer_total">
                     <span>Total</span>
