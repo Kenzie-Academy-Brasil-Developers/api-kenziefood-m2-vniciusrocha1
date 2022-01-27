@@ -6,4 +6,4 @@ document.addEventListener('DOMContentLoaded', () => {
     VitrineControll .addEvents();
     CarrinhoControll.montarCarrinho();
     document.querySelector(".filterContainer__btn--todos").click();
-}, false);
+},false);

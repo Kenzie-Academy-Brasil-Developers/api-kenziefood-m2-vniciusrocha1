@@ -2,8 +2,8 @@ import {RotasControll}    from "./Rotas.js";
 import {CarrinhoControll} from "./Carrinho.js";
 import {ExtraControll}    from "./Extra.js"
 class VitrineControll {
-    static doFetch = true;
-    static filtros = {Todos:{img:"",classe:""},Panificadora:{img:"./src/img/Icon_bread.png",classe:"filterContainer__btn--panificadora"},Bebidas:{img:"./src/img/Icon_glass of wine.png",classe:"filterContainer__btn--bebidas"},Frutas:{img:"./src/img/Icon_fruits.png",classe:"filterContainer__btn--frutas"}};
+    static doFetch    = true;
+    static filtros    = {Todos:{img:"",classe:""},Panificadora:{img:"./src/img/Icon_bread.png",classe:"filterContainer__btn--panificadora"},Bebidas:{img:"./src/img/Icon_glass of wine.png",classe:"filterContainer__btn--bebidas"},Frutas:{img:"./src/img/Icon_fruits.png",classe:"filterContainer__btn--frutas"}};
     static getFiltros = ({categoria,retorno}) => this.filtros[categoria][retorno];
     static async montarVitrine(filtro){
         this.doFetch = false;
