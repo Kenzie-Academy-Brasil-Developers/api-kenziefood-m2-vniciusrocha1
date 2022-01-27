@@ -5,8 +5,8 @@ class ExtraControll{
     static action        = null;
     static body          = [];
     static configButtons = () => document.querySelectorAll(".disableClass").forEach(value => value.disabled = (this.action == "update")? false : true);
-    static modal         = (display = null)            => (display !== null)? document.querySelector(".modalProduct").style.display = (display == "open")? "block" : "none" : document.querySelector(".modalProduct");
-    static setFormValue  = (produto,origem="fetchAPI") => document.querySelector(".formProduct").querySelectorAll(`.form--field`).forEach(field => (origem == "fetchAPI")? this.body = this.formatField(field) : (this.action == "insert")? field.value = "" : field.value = produto[field.getAttribute("name").split("--")[1]]);
+    static modal         = (display = null)             => (display !== null)? document.querySelector(".modalProduct").style.display = (display == "open")? "block" : "none" : document.querySelector(".modalProduct");
+    static setFormValue  = (produto,origem="fetchAPI")  => document.querySelector(".formProduct").querySelectorAll(`.form--field`).forEach(field => (origem == "fetchAPI")? this.body = this.formatField(field) : (this.action == "insert")? field.value = "" : field.value = produto[field.getAttribute("name").split("--")[1]]);
     static closeModal    = () => document.querySelector(".modalProduct").style.display = "none";
     static async initExtra({action,id=0}) {
         this.modal("open");

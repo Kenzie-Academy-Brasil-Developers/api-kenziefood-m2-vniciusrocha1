@@ -294,7 +294,7 @@ body {
     height: 200px;
 }
 
-.productsContainer__list span {
+.productsContainer__list span{
     box-sizing: border-box;
     font-size: 17px;
     font-weight: bold;

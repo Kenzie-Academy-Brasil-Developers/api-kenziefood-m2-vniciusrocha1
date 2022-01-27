@@ -1,4 +1,4 @@
-import { RotasControll } from "./Rotas.js";
+import { RotasControll }    from "./Rotas.js";
 class CarrinhoControll {
     static addEvents       = ()       => document.querySelectorAll('.cartContainer__trash').forEach(element => element.addEventListener('click', event => this.excluirCarrinho(event.target.closest('li').getAttribute('index'))));
     static getLocalStorage = ()       => JSON.parse(localStorage.getItem('carrinho'));
