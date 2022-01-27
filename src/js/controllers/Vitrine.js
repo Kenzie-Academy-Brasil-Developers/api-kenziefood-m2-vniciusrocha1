@@ -1,5 +1,6 @@
-import { KenzieFoodControll } from "./KenzieFood.js";
-import { CarrinhoControll } from "./Carrinho.js";
+import {KenzieFoodControll} from "./KenzieFood.js";
+import {CarrinhoControll}   from "./Carrinho.js";
+import {ExtraControll}      from "./Extra.js"
 let call = true;
 class VitrineControll {
     static async addItensVitrine(procurar) {
@@ -58,12 +59,15 @@ class VitrineControll {
         });
     }
     static addEventsCardButton() {
-        let botoesAddCart = document.querySelectorAll(".btn--addCart");
+        let botoesAddCart = document.querySelectorAll(".btn-product");
         botoesAddCart.forEach((botao) => {
             botao.addEventListener('click', (e) => {
-                let li = e.target.closest('li');
-                let id = li.getAttribute('idP');
-                CarrinhoControll.addCarrinho(id);
+                let classe = e.target.closest('button').getAttribute('class').split(' ')[1];
+                let li = (classe !== "btn--addProduct")? e.target.closest('li') : 0;
+                let id = (classe !== "btn--addProduct")? li.getAttribute('idP') : 0;
+                if(classe == "btn--addCart")CarrinhoControll.addCarrinho(id);
+                if(classe == "btn--editProduct")ExtraControll.openModal("update",id);
+                if(classe == "btn--addProduct")ExtraControll.openModal("insert");
             });
         });
     }

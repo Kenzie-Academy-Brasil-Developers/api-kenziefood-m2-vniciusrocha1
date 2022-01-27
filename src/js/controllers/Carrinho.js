@@ -26,7 +26,7 @@ class CarrinhoControll {
             </div>`;
         if(carrinho !== null){
             carrinho.forEach((item, index) => {
-                let {categoria, nome, preco, imagem, id} = item
+                let {categoria=null, nome=null, preco=0, imagem=null, id=0} = item;
                 let valorConvertido = preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
                 let html = `
                     <li index="${index}">
