@@ -204,9 +204,10 @@ body {
     padding: 15px;
     margin: 0px 22px 0px 0px;
     border-radius: 30px;
-    position:relative;
-    bottom:20px;
-    left:15px;
+    position: relative;
+    bottom: 20px;
+    left: 15px;
+    top: 4px;
     flex: none;
     flex-grow: 0;
 }
@@ -300,12 +301,14 @@ body {
     font-weight: bold;
     line-height: 27px;
 }
+
 .filterContainer__btn--todos span,
 .filterContainer__btn--panificadora span,
 .filterContainer__btn--frutas span,
 .filterContainer__btn--bebidas span {
     font-size: 12px;
-    font-weight:400;
+    font-weight: 400;
+    bottom: -20px;
 }
 
 .productsContainer__list p {
@@ -505,13 +508,14 @@ body {
     margin: 0px 25px;
 }
 
-.div__centralizar--categoria,.div__centralizar--filtro {
+.div__centralizar--categoria,
+.div__centralizar--filtro {
     border-radius: 20px;
     display: flex;
     width: 133px;
     height: 30px;
     position: relative;
-    bottom: 20px;
+    top: -20px;
     left: 12px;
     justify-content: space-around;
     align-items: center;
@@ -528,6 +532,7 @@ body {
     box-sizing: border-box;
     border-radius: 8px;
 }
+
 .modalProduct {
     visibility: hidden;
 }
@@ -771,6 +776,7 @@ body {
         top: 10px;
         left: 460px;
     }
+
     .btn--closeModal:hover {
         cursor: pointer;
     }
