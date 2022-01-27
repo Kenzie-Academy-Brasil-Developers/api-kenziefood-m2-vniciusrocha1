@@ -1,53 +1,64 @@
-import {KenzieFoodControll} from "./KenzieFood.js";
+import {RotasControll} from "./Rotas.js";
+import { VitrineControll } from "./Vitrine.js";
 class ExtraControll{
     static id           = 0;
-    static make         = null;
-    static method       = null;
+    static action       = null;
     static formValues   = [];
-    static setFormValue = (produto,origem="callRoutes") => document.querySelector(".formProduct").querySelectorAll(`.form--field`).forEach(field => (origem == "callRoutes")? this.formValues = this.formatField(field) : (this.make == "post")? field.value = "" : field.value = produto[field.getAttribute("name").split("--")[1]]);
-    static async openModal(make,id=0) {
-        document.querySelector(".modalProduct").style.display = "block";
+    static modal        = (display = null)            => (display !== null)? document.querySelector(".modalProduct").style.display = (display == "open")? "block" : "none" : document.querySelector(".modalProduct");
+    static setFormValue = (produto,origem="fetchAPI") => document.querySelector(".formProduct").querySelectorAll(`.form--field`).forEach(field => (origem == "fetchAPI")? this.formValues = this.formatField(field) : (this.action == "insert")? field.value = "" : field.value = produto[field.getAttribute("name").split("--")[1]]);
+    static closeModal   = () => document.querySelector(".modalProduct").style.display = "none";
+    static async initExtra({action,id=0}) {
+        this.modal("open");
         this.id     = id;
-        this.make   = make;
-        let produto = (make="update")? await KenzieFoodControll.get(id) : {};
-        this.setFormValue(produto,"openModal");
+        this.action = action;
+        let produto = (action="update")? await RotasControll.get({id}) : {};
+        this.setFormValue(produto,"initExtra");
         this.configButtons();
-    }
-    static closeModal(){
-        document.querySelector(".modalProduct").style.display = "none";
     }
     static addEvents(){
         let buttons = document.querySelectorAll(".eventClick");
         buttons.forEach(element => {
             element.addEventListener("click", e => {
-                let button = (e.target.tagName == "SPAN")? e.target : e.target.closest('button');
-                let classe = button.getAttribute('class').split(' ')[button.getAttribute('class').split(' ').findIndex(classe => classe.includes('btn--'))];
-                let method =  (classe == "btn--modalSave")  ? ((this.make=="update")? "PATCH" : "POST") : classe;
+                let button = e.target.closest('button');
+                let classe = button.getAttribute('class').split(' ')[1];
+                let method =  (classe == "btn--modalSave")  ? ((this.action=="update")? "PATCH" : "POST") : classe;
                 method     =  (method == "btn--modalReset") ? "GET"                                     : method;
-                method     =  (method == "btn--modalDelete")? "fgh"                                  : method;
-                              (method == "btn--closeModal") ? this.closeModal()                         : this.callRoutes(method);
+                method     =  (method == "btn--modalDelete")? "DELETE"                                  : method;
+                              (method == "btn--closeModal") ? this.modal("close")                       : this.fetchAPI(method);
             });
         });
+        let modal = this.modal();
+        modal.addEventListener("click", event => {
+            let classe = event.target.getAttribute("class");
+            if (classe == "modalProduct") this.modal("close");
+        });
     }
-    static configButtons(){
-        //Ocultar os botões se o this.method == "POST" e mostrar se for PATCH
-    }
-    static async callRoutes(method){
-        this.configButtons();
+    static async fetchAPI(method){
         this.formValues = [];
         this.setFormValue();
-        let retorno = (method == "GET")? {} :{"msg":`O metodo '${method}' é invalido`};
-        if (method == "GET")    retorno = await KenzieFoodControll.get(this.id);
-        if (method == "GET")    this.setFormValue(retorno,'openModal');
-        if (method == "POST")   retorno = await KenzieFoodControll.post(this.formValues);
-        if (method == "PATCH")  retorno = await KenzieFoodControll.patch(this.id,this.formValues);
-        if (method == "DELETE") retorno = await KenzieFoodControll.delete(this.id);
-        console.log('retorno', retorno)
+        let retornoAPI = (method == "GET")? {} :{"msg":`O metodo '${method}' é invalido`};
+        if (method == "GET")    retornoAPI = await RotasControll.get({id:this.id});
+        if (method == "GET")    this.setFormValue(retornoAPI,'initExtra');
+        if (method == "POST")   retornoAPI = RotasControll.post({formValues:this.formValues});
+        if (method == "PATCH")  retornoAPI = RotasControll.patch({id:this.id,formValues:this.formValues});
+        if (method == "DELETE") retornoAPI = RotasControll.delete({id:this.id});
+        this.returnAPI({retornoAPI,method});
     }
     static formatField (field){
         let obj = {};
         obj[field.name.split('--')[1]] = field.value;
         return [...this.formValues,obj];
+    }
+    static async returnAPI({retornoAPI={},method=""}){
+        let retorno = await retornoAPI;
+        this.id     = (method == "POST" && retorno.id)  ? retorno.id : this.id;
+        this.action = (method == "POST" && retorno.id)  ? "update"   : this.action;
+        if(method == "POST" && retorno.id) this.configButtons();
+        if(method == "DELETE" && retorno.msg == undefined) VitrineControll.montarVitrine("todos");
+    }
+    static configButtons(){
+        document.querySelector(".btn--modalDelete").disabled = (this.action == "update")? false : true;
+        document.querySelector(".btn--modalReset").disabled = (this.action == "update")? false : true;
     }
 }
 export {ExtraControll};

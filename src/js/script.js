@@ -3,7 +3,7 @@ import {CarrinhoControll} from "./controllers/Carrinho.js";
 import {ExtraControll}    from "./controllers/Extra.js";
 document.addEventListener('DOMContentLoaded', () => {
     ExtraControll   .addEvents();
-    VitrineControll .addEventFilter();
-    CarrinhoControll.criandoDOM();
+    VitrineControll .addEvents();
+    CarrinhoControll.montarCarrinho();
     document.querySelector(".filterContainer__btn--todos").click();
 }, false);

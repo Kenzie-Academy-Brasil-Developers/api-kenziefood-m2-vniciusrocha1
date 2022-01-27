@@ -45,17 +45,24 @@
                     <ul class="productsContainer__list">
                     </ul>
                 </div>
-
-                <footer class="cartContainer__footer">
-                </footer>
-            </div>
-        </aside>
-    </main>
-
-        <!-- MODAL -->
+            </section>
+            <aside class="aside">
+                <div class="aside__cartContainer">
+                    <header class="cartContainer__header">
+                        <i class="fa fa-cart-arrow-down"></i>
+                        <span>Carrinho</span>
+                    </header>
+                    <div class="aside__cartContainer--full">
+                        <ul class="cartContainer__list">
+                        </ul>
+                    </div>
+                    <footer class="cartContainer__footer">
+                    </footer>
+                </div>
+            </aside>
+        </main>
         <section class="modalProduct">
             <div class="modalExtra">
-            <span class="eventClick btn--modalClose"><i class="fas fa-times"></i></span>
                 <div class="modalExtra__header">
                     <h2>Insira os dados do produto:</h2>
                 </div>
@@ -66,7 +73,7 @@
                         <label for="fdescricao">Descrição</label><br>
                         <input class="form--field" type="text" name="txt--descricao"><br>
                         <label for="fcategoria">Categoria</label><br>
-                        <select name="cbx--categoria">
+                        <select class= "form--field" name="cbx--categoria">
                             <option value="" selected>Selecione uma opção</option>
                             <option value="Panificadora">Panificadora</option>
                             <option value="Frutas">Frutas</option>
@@ -79,9 +86,9 @@
                     </form>
                 </div>
                 <div class="modalExtra__footer">
-                    <button class="eventClick btn--modalDelete">DELETAR</button>
-                    <button class="eventClick btn--modalReset">RESETAR</button>
-                    <button class="eventClick btn--modalSave">SALVAR</button>
+                    <button class="eventClick btn--modalDelete">Excluir</button>
+                    <button class="eventClick btn--modalReset">Reiniciar</button>
+                    <button class="eventClick btn--modalSave">Salvar</button>
                 </div>
             </div>
         </section>
