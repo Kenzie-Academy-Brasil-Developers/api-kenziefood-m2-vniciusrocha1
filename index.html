@@ -63,6 +63,41 @@
             </div>
         </aside>
     </main>
+
+    <!-- MODAL -->
+    <div id="myModal" class="modal">
+        <div class="modalProduct">
+            <span class="eventClick btn--modalClose"><i class="fas fa-times"></i></span>
+            <div class="modalProduct__header">
+                <h2>Insira os dados do produto:</h2>
+            </div>
+            <div class="modalProduct__body">
+                <form class="formProduct" action="#">
+                    <label for="fnome">Nome</label><br>
+                    <input class="form--field" type="text" name="txt--nome"><br>
+                    <label for="fdescricao">Descrição</label><br>
+                    <input class="form--field" type="text" name="txt--descricao"><br>
+                    <label for="fcategoria">Categoria</label><br>
+                    <select name="cbx--categoria">
+                        <option value="" selected>Selecione uma opção</option>
+                        <option value="Panificadora">Panificadora</option>
+                        <option value="Frutas">Frutas</option>
+                        <option value="Bebidas">Bebidas</option>
+                    </select><br>
+                    <label for="fpreco">Preço</label><br>
+                    <input class="form--field" type="text" name="txt--preco"><br>
+                    <label for="fimagem">URL da imagem</label><br>
+                    <input class="form--field" type="text" name="txt--imagem">
+                </form>
+            </div>
+            <div class="modalProduct__footer">
+                <button class="eventClick btn--modalDelete">DELETAR</button>
+                <button class="eventClick btn--modalReset">RESETAR</button>
+                <button class="eventClick btn--modalSave">SALVAR</button>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="./src/js/script.js"></script>
 </body>
 
