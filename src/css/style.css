@@ -523,6 +523,10 @@ body {
     visibility: hidden;
 }
 
+.modal {
+    visibility: hidden;
+}
+
 @media screen and (min-width: 768px) {
     body {
         box-sizing: border-box;
@@ -609,7 +613,6 @@ body {
         background-color: rgb(0, 0, 0);
         background-color: rgba(0, 0, 0, 0.8);
     }
-
     .modalExtra {
         position: relative;
         background-color: var(--white);
@@ -752,7 +755,6 @@ body {
         margin-bottom: 25px;
         font-weight: bold;
     }
-
     .modalExtra__footer button:hover {
         cursor: pointer;
     }
