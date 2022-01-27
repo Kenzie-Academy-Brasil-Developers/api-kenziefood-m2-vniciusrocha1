@@ -1,104 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/css/reset.css">
-    <link rel="stylesheet" href="src/css/style.css">
-    <title>E-Commerce - Grupo 1</title>
-    <script src="https://kit.fontawesome.com/9f558f1f8f.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <header class="header">
-        <div class="header__logoContainer">
-            <img class="logoContainer__logo" src="/src/img/Logo.png">
-        </div>
-        <div class="header__searchContainer">
-            <input class="searchContainer__input" type="search" placeholder="Pesquisar por produto">
-            <button class="btn--filtro searchContainer__button" type="submit"><i class="fa fa-search"></i></button>
-            <button class="btn-product btn--addProduct">
-                <i class="fas fa-plus"></i>
-            </button>
-        </div>
-    </header>
-    <main class="main">
-        <nav class="nav">
-            <div class="nav__filterContainer">
-                <button filter="todos" class="btn--filtro btn--categoria filterContainer__btn--todos">Todos</button>
-                <button filter="panificadora" class="btn--filtro btn--categoria filterContainer__btn--panificadora">
-                    <img class="btn__icon" src="/src/img/Icon_bread.png">
-                    Panificadora
-                </button>
-                <button filter="frutas" class="btn--filtro btn--categoria filterContainer__btn--frutas">
-                    <img class="btn__icon" src="/src/img/Icon_fruits.png">
-                    Frutas
-                </button>
-                <button filter="bebidas" class="btn--filtro btn--categoria filterContainer__btn--bebidas">
-                    <img class="btn__icon" src="/src/img/Icon_glass of wine.png">
-                    Bebidas
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="src/css/reset.css">
+        <link rel="stylesheet" href="src/css/style.css">
+        <title>E-Commerce - Grupo 1</title>
+        <script src="https://kit.fontawesome.com/9f558f1f8f.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__logoContainer">
+                <img class="logoContainer__logo" src="/src/img/Logo.png">
+            </div>
+            <div class="header__searchContainer">
+                <input class="searchContainer__input" type="search" placeholder="Pesquisar por produto">
+                <button class="btn--filtro searchContainer__button" type="submit"><i class="fa fa-search"></i></button>
+                <button class="btn-product btn--addProduct">
+                    <i class="fas fa-plus"></i>
                 </button>
             </div>
-        </nav>
-        <section class=section>
-            <div class="section__productsContainer">
-                <ul class="productsContainer__list">
-                </ul>
-            </div>
-        </section>
-        <aside class="aside">
-            <div class="aside__cartContainer">
-                <header class="cartContainer__header">
-                    <i class="fa fa-cart-arrow-down"></i>
-                    <span>Carrinho</span>
-                </header>
-                <div class="aside__cartContainer--full">
-                    <ul class="cartContainer__list">
+        </header>
+        <main class="main">
+            <nav class="nav">
+                <div class="nav__filterContainer">
+                    <button filter="todos" class="btn--filtro btn--categoria filterContainer__btn--todos">Todos</button>
+                    <button filter="panificadora" class="btn--filtro btn--categoria filterContainer__btn--panificadora">
+                        <img class="btn__icon" src="/src/img/Icon_bread.png">
+                        Panificadora
+                    </button>
+                    <button filter="frutas" class="btn--filtro btn--categoria filterContainer__btn--frutas">
+                        <img class="btn__icon" src="/src/img/Icon_fruits.png">
+                        Frutas
+                    </button>
+                    <button filter="bebidas" class="btn--filtro btn--categoria filterContainer__btn--bebidas">
+                        <img class="btn__icon" src="/src/img/Icon_glass of wine.png">
+                        Bebidas
+                    </button>
+                </div>
+            </nav>
+            <section class=section>
+                <div class="section__productsContainer">
+                    <ul class="productsContainer__list">
                     </ul>
                 </div>
-                <footer class="cartContainer__footer">
-                </footer>
+            </section>
+            <aside class="aside">
+                <div class="aside__cartContainer">
+                    <header class="cartContainer__header">
+                        <i class="fa fa-cart-arrow-down"></i>
+                        <span>Carrinho</span>
+                    </header>
+                    <div class="aside__cartContainer--full">
+                        <ul class="cartContainer__list">
+                        </ul>
+                    </div>
+                    <footer class="cartContainer__footer">
+                    </footer>
+                </div>
+            </aside>
+        </main>
+        <!-- MODAL -->
+        <section class="modalProduct">
+            <div class="modalExtra">
+                <span class="eventClick btn--closeModal">&times;</span>
+                <div class="modalExtra__header">
+                    <h2>Insira os dados do produto:</h2>
+                </div>
+                <div class="modalExtra__body">
+                    <form class="formProduct" action="#">
+                        <label for="fnome">Nome</label><br>
+                        <input class="form--field" type="text" name="txt--nome"><br>
+                        <label for="fdescricao">Descrição</label><br>
+                        <input class="form--field" type="text" name="txt--descricao"><br>
+                        <label for="fcategoria">Categoria</label><br>
+                        <select name="cbx--categoria">
+                            <option value="" selected>Selecione uma opção</option>
+                            <option value="Panificadora">Panificadora</option>
+                            <option value="Frutas">Frutas</option>
+                            <option value="Bebidas">Bebidas</option>
+                        </select><br>
+                        <label for="fpreco">Preço</label><br>
+                        <input class="form--field" type="text" name="txt--preco"><br>
+                        <label for="fimagem">URL da imagem</label><br>
+                        <input class="form--field" type="text" name="txt--imagem">
+                    </form>
+                </div>
+                <div class="modalExtra__footer">
+                    <button class="eventClick btn--modalDelete">DELETAR</button>
+                    <button class="eventClick btn--modalReset">RESETAR</button>
+                    <button class="eventClick btn--modalSave">SALVAR</button>
+                </div>
             </div>
-        </aside>
-    </main>
-
-    <!-- MODAL -->
-    <div id="myModal" class="modal">
-        <div class="modalProduct">
-            <span class="eventClick btn--modalClose">&times;</span>
-            <div class="modalProduct__header">
-                <h2>Insira os dados do produto:</h2>
-            </div>
-            <div class="modalProduct__body">
-                <form class="formProduct" action="#">
-                    <label for="fnome">Nome</label><br>
-                    <input class="form--field" type="text" name="txt--nome"><br>
-                    <label for="fdescricao">Descrição</label><br>
-                    <input class="form--field" type="text" name="txt--descricao"><br>
-                    <label for="fcategoria">Categoria</label><br>
-                    <select name="cbx--categoria">
-                        <option value="" selected>Selecione uma opção</option>
-                        <option value="Panificadora">Panificadora</option>
-                        <option value="Frutas">Frutas</option>
-                        <option value="Bebidas">Bebidas</option>
-                    </select><br>
-                    <label for="fpreco">Preço</label><br>
-                    <input class="form--field" type="text" name="txt--preco"><br>
-                    <label for="fimagem">URL da imagem</label><br>
-                    <input class="form--field" type="text" name="txt--imagem">
-                </form>
-            </div>
-            <div class="modalProduct__footer">
-                <button class="eventClick btn--modalDelete">DELETAR</button>
-                <button class="eventClick btn--modalReset">RESETAR</button>
-                <button class="eventClick btn--modalSave">SALVAR</button>
-            </div>
-        </div>
-    </div>
-
-    <script type="module" src="./src/js/script.js"></script>
-</body>
-
+        </section>
+        <script type="module" src="./src/js/script.js"></script>
+    </body>
 </html>

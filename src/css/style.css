@@ -589,7 +589,7 @@ body {
     }
 
     /* MODAL */
-    .modal {
+    .modalProduct {
         display: none;
         position: fixed;
         z-index: 1;
@@ -603,7 +603,7 @@ body {
         background-color: rgba(0, 0, 0, 0.8);
     }
 
-    .modalProduct {
+    .modalExtra {
         position: relative;
         background-color: var(--white);
         margin: auto;
@@ -641,7 +641,7 @@ body {
         }
     }
 
-    .modalProduct__header {
+    .modalExtra__header {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -655,7 +655,7 @@ body {
         color: white;
     }
 
-    .modalProduct__body {
+    .modalExtra__body {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -663,7 +663,7 @@ body {
         height: 350px;
     }
 
-    .modalProduct__footer {
+    .modalExtra__footer {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -735,7 +735,7 @@ body {
         background-color: var(--grey-1);
     }
 
-    .modalProduct__footer button {
+    .modalExtra__footer button {
         border-radius: 25px;
         width: 100px;
         height: 30px;
@@ -743,11 +743,11 @@ body {
         font-weight: bold;
     }
 
-    .modalProduct__footer button:hover {
+    .modalExtra__footer button:hover {
         cursor: pointer;
     }
 
-    .btn--modalClose {
+    .btn--closeModal {
         position: absolute;
         color: white;
         top: 5px;
@@ -756,8 +756,8 @@ body {
         font-weight: bold;
     }
 
-    .btn--modalClose:hover,
-    .btn--modalClose:focus {
+    .btn--closeModal:hover,
+    .btn--closeModal:focus {
         color: #000;
         text-decoration: none;
         cursor: pointer;

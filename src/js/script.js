@@ -1,7 +1,9 @@
-import {VitrineControll}        from "./controllers/Vitrine.js";
+import {VitrineControll}  from "./controllers/Vitrine.js";
 import {CarrinhoControll} from "./controllers/Carrinho.js";
+import {ExtraControll}    from "./controllers/Extra.js";
 document.addEventListener('DOMContentLoaded', () => {
-    VitrineControll.addEventFilter();
+    ExtraControll   .addEvents();
+    VitrineControll .addEventFilter();
     CarrinhoControll.criandoDOM();
     document.querySelector(".filterContainer__btn--todos").click();
 }, false);

@@ -62,13 +62,12 @@ class VitrineControll {
         let botoesAddCart = document.querySelectorAll(".btn-product");
         botoesAddCart.forEach((botao) => {
             botao.addEventListener('click', (e) => {
-                let li = e.target.closest('li');
-                let id = li.getAttribute('idP');
-                let btn = e.target.closest('button');
-                let classAtual = btn.getAttribute('class').split(' ')[1];
-                if(classAtual == "btn--addCart")CarrinhoControll.addCarrinho(id);
-                if(classAtual == "btn--editProduct")ExtraControll.openModel("PATCH",id);
-                if(classAtual == "btn--addProduct ")ExtraControll.openModel("POST");
+                let classe = e.target.closest('button').getAttribute('class').split(' ')[1];
+                let li = (classe !== "btn--addProduct")? e.target.closest('li') : 0;
+                let id = (classe !== "btn--addProduct")? li.getAttribute('idP') : 0;
+                if(classe == "btn--addCart")CarrinhoControll.addCarrinho(id);
+                if(classe == "btn--editProduct")ExtraControll.openModal("update",id);
+                if(classe == "btn--addProduct")ExtraControll.openModal("insert");
             });
         });
     }
