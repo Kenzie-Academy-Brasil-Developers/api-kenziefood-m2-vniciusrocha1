@@ -11,7 +11,7 @@ class CarrinhoControll {
                 <span class="list--span2">Por enquanto não temos produtos no carrinho</span>
             </div>`;
         let carrinho = this.getLocalStorage();
-        if(carrinho.length > 0){
+        if(carrinho !== null && carrinho !== undefined && carrinho.length > 0){
             carrinho.forEach((item, index) => {
                 let {categoria=null, nome=null, preco=0, imagem=null, id=0} = item;
                 let valorConvertido = preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
@@ -33,12 +33,12 @@ class CarrinhoControll {
     }
     static criarFooter({total=0,qtd=0}){
             let carrinho = this.getLocalStorage();
-            if (carrinho.length > 0) carrinho.forEach(item => total += Number(item.preco));
+            if (carrinho !== null && carrinho !== undefined && carrinho.length > 0) carrinho.forEach(item => total += Number(item.preco));
             let valor = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             document.querySelector(".cartContainer__footer").innerHTML = `
                 <div class="footer__quantity">
                     <span>Quantidade</span>
-                    <span>${carrinho.length}</span>
+                    <span>${carrinho !== null && carrinho !== undefined && carrinho.length}</span>
                     </div>
                     <div class="footer_total">
                     <span>Total</span>
